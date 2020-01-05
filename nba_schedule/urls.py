@@ -20,8 +20,8 @@ from django.conf.urls import include, url
 from mainapp import views as mainapp_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path(r'^$', mainapp_views.index, name='home'),
+    url('admin/', admin.site.urls),
+    url(r'^$', mainapp_views.index, name='home'),
 ]
 
 
