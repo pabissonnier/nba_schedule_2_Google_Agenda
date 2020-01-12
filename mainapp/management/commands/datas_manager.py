@@ -3,7 +3,7 @@
 import urllib.request
 import json
 import requests
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 #from answer.models import Product
 
 
@@ -46,7 +46,7 @@ class DatasManager:
             nba_game = []
             game_date = game["startTimeUTC"]
             game_day = game_date[:10]
-            game_hour = game_date[11:19]
+            game_hour = game_date[11:16]
             vteam = game["vTeam"]["fullName"]
             hteam = game["hTeam"]["fullName"]
             nba_game.append(game_day)
@@ -56,3 +56,26 @@ class DatasManager:
             nba_game_list.append(nba_game)
         return nba_game_list
 
+    def date_converter(nba_list):
+        """ Convert list timzone to actual NY timezone """
+        nba_real_list = []
+        for game in nba_list:
+            nba_game = []
+            nba_hour = datetime.strptime(game[1], '%H:%M')
+            nba_hour_time = nba_hour.time()
+            nba_real_hour = nba_hour - timedelta(hours=5)
+            nba_real_hour_time = nba_real_hour.time()
+            nba_day = datetime.strptime(game[0], '%Y-%m-%d')
+            if nba_hour_time < nba_real_hour_time:
+                nba_real_day = nba_day - timedelta(days=1)
+                nba_real_day_date = nba_real_day.date()
+            else:
+                nba_real_day_date = nba_day.date()
+            vteam = game[2]
+            hteam = game[3]
+            nba_game.append(nba_real_day_date.strftime("%Y-%m-%d"))
+            nba_game.append(nba_real_hour_time.strftime("%H:%M"))
+            nba_game.append(vteam)
+            nba_game.append(hteam)
+            nba_real_list.append(nba_game)
+        return nba_real_list
