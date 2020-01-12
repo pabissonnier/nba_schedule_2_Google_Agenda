@@ -26,9 +26,9 @@ class DatasManager:
             date_list.append(day_str)
         return date_list
 
-    def games_extraction(self):
+    def games_extraction(self, date):
         """ Extracting game infos from json file """
-        url = "https://api-nba-v1.p.rapidapi.com/games/date/2020-01-19"
+        url = "https://api-nba-v1.p.rapidapi.com/games/date/{0}".format(date)
 
         headers = {
             'x-rapidapi-host': "api-nba-v1.p.rapidapi.com",
@@ -37,4 +37,19 @@ class DatasManager:
 
         response = requests.request("GET", url, headers=headers)
 
-        nba_text = response.text
+        return json.loads(response.text)
+
+    def get_infos_from_json(self, day_schedule):
+        """ Get infos from schedule API """
+        nba_game_list = []
+        for game in day_schedule["api"]["games"]:
+            nba_game = []
+            game_date = game["startTimeUTC"]
+            vteam = game["vTeam"]["fullName"]
+            hteam = game["hTeam"]["fullName"]
+            nba_game.append(game_date)
+            nba_game.append(vteam)
+            nba_game.append(hteam)
+            nba_game_list.append(nba_game)
+        return nba_game_list
+
