@@ -21,6 +21,11 @@
   <!-- Custom styles for this template -->
   <link href="{% static "mainapp/css/landing-page.min.css"%}" rel="stylesheet">
 
+  <!-- Custom styles for this template -->
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
 </head>
 
 <body>
@@ -41,17 +46,29 @@
         <div class="col-xl-9 mx-auto">
           <h1 class="mb-5">Upload the NBA Schedule to your Google Calendar now !</h1>
         </div>
-        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-          <form>
-            <div class="form-row">
-              <div class="col-12 col-md-9 mb-2 mb-md-0">
-                <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
-              </div>
-              <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
-              </div>
-            </div>
-          </form>
+        <div class="col-md-10 col-lg-4 col-xl-7 mx-auto">
+          <div id="my-signin2"></div>
+            <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 650,
+        'height': 70,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+    </script>
+
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
         </div>
       </div>
     </div>
