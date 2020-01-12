@@ -45,9 +45,12 @@ class DatasManager:
         for game in day_schedule["api"]["games"]:
             nba_game = []
             game_date = game["startTimeUTC"]
+            game_day = game_date[:10]
+            game_hour = game_date[11:19]
             vteam = game["vTeam"]["fullName"]
             hteam = game["hTeam"]["fullName"]
-            nba_game.append(game_date)
+            nba_game.append(game_day)
+            nba_game.append(game_hour)
             nba_game.append(vteam)
             nba_game.append(hteam)
             nba_game_list.append(nba_game)
