@@ -9,3 +9,4 @@ class Schedule(models.Model):
     hour = models.CharField(max_length=25, null=True)
     vteam = models.CharField(max_length=25, null=True)
     hteam = models.CharField(max_length=25, null=True)
+    game_type = models.CharField(max_length=25, null=True)

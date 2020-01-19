@@ -11,7 +11,7 @@ class Command(BaseCommand):
 
         season_dates = DatasManager.season_dates(datas_from_api)
         for date in season_dates:
-
-        categories_url_name = DatasManager.category_to_url(datas_from_api, categories_list)
-        products_extract = DatasManager.products_extract(datas_from_api, categories_url_name)
-        DatasManager.get_products_datas(datas_from_api, products_extract)
+            day_schedule = DatasManager.games_extraction(datas_from_api, date)
+            day_infos = DatasManager.get_infos_from_json(datas_from_api, day_schedule)
+            day_infos_converted = DatasManager.date_converter(datas_from_api, day_infos)
+            DatasManager.game_day_insertion(datas_from_api, day_infos_converted)

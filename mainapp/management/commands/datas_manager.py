@@ -4,7 +4,7 @@ import urllib.request
 import json
 import requests
 from datetime import date, timedelta, datetime
-#from answer.models import Product
+from mainapp.models import Schedule
 
 
 class DatasManager:
@@ -56,8 +56,8 @@ class DatasManager:
             nba_game_list.append(nba_game)
         return nba_game_list
 
-    def date_converter(nba_list):
-        """ Convert list timzone to actual NY timezone """
+    def date_converter(self, nba_list):
+        """ Convert list timezone to actual NY timezone """
         nba_real_list = []
         for game in nba_list:
             nba_game = []
@@ -79,3 +79,15 @@ class DatasManager:
             nba_game.append(hteam)
             nba_real_list.append(nba_game)
         return nba_real_list
+
+    def game_day_insertion(self, nba_real_list):
+        """ Insert games of a day in the DB """
+        for game_list in nba_real_list:
+            game_date = game_list[0]
+            game_hour = game_list[1]
+            game_vteam = game_list[2]
+            game_hteam = game_list[3]
+            game_type = "season"
+            insertion_datas = Schedule(date=game_date, hour=game_hour, vteam=game_vteam, hteam=game_hteam,
+                                       game_type=game_type)
+            insertion_datas.save()
