@@ -10,3 +10,6 @@ class Schedule(models.Model):
     vteam = models.CharField(max_length=25, null=True)
     hteam = models.CharField(max_length=25, null=True)
     game_type = models.CharField(max_length=25, null=True)
+
+    def __str__(self):
+        return self.date
