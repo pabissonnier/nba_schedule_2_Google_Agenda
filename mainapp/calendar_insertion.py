@@ -1,52 +1,46 @@
 from __future__ import print_function
-import datetime
-import pickle
-import os.path
 from googleapiclient.discovery import build
-from google_auth_oauthlib.flow import InstalledAppFlow
-from google.auth.transport.requests import Request
+from httplib2 import Http
+from oauth2client import file, client, tools
 
-# If modifying these scopes, delete the file token.pickle.
-SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
-def main():
-    """Shows basic usage of the Google Calendar API.
-    Prints the start and name of the next 10 events on the user's calendar.
-    """
-    creds = None
-    # The file token.pickle stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
-    if os.path.exists('token.pickle'):
-        with open('token.pickle', 'rb') as token:
-            creds = pickle.load(token)
-    # If there are no (valid) credentials available, let the user log in.
-    if not creds or not creds.valid:
-        if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
-            flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
-            creds = flow.run_local_server(port=0)
-        # Save the credentials for the next run
-        with open('token.pickle', 'wb') as token:
-            pickle.dump(creds, token)
+try:
+    import argparse
+    flags = argparse.ArgumentParser(parents=
+[tools.argparser]).parse_args()
+except ImportError:
+    flags = None
 
-    service = build('calendar', 'v3', credentials=creds)
+SCOPES = 'https://www.googleapis.com/auth/calendar'
+store = file.Storage('storage.json')
+creds = store.get()
+if not creds or creds.invalid:
+    flow = client.flow_from_clientsecrets('pabissonnier@gmail.com',
+SCOPES)
+    creds = tools.run_flow(flow, store, flags) \
+          if flags else tools.run(flow, store)
+CAL = build('calendar', 'v3', http=creds.authorize(Http()))
 
-    # Call the Calendar API
-    now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
-    print('Getting the upcoming 10 events')
-    events_result = service.events().list(calendarId='primary', timeMin=now,
-                                        maxResults=10, singleEvents=True,
-                                        orderBy='startTime').execute()
-    events = events_result.get('items', [])
+GMT_OFF = '-04:00'          # ET/MST/GMT-4
+EVENT1 = {
+    'summary': 'Buy apples',
+    'start': {'dateTime': '2017-06-24T13:00:00%s' % GMT_OFF},
+    'end': {'dateTime': '2017-06-24T14:00:00%s' % GMT_OFF},
+}
+EVENT2 = {
+    'summary': 'Buy Bannanas',
+    'start': {'dateTime': '2017-06-25T13:00:00%s' % GMT_OFF},
+    'end': {'dateTime': '2017-06-25T14:00:00%s' % GMT_OFF},
+}
+EVENT3 = {
+    'summary': 'Buy candy',
+    'start': {'dateTime': '2017-06-26T13:00:00%s' % GMT_OFF},
+    'end': {'dateTime': '2017-06-26T14:00:00%s' % GMT_OFF},
+}
 
-    if not events:
-        print('No upcoming events found.')
-    for event in events:
-        start = event['start'].get('dateTime', event['start'].get('date'))
-        print(start, event['summary'])
-
-if __name__ == '__main__':
-    main()
+e = CAL.events().insert(calendarId='primary',
+                sendNotifications=True, body=EVENT1).execute()
+e = CAL.events().insert(calendarId='primary',
+                sendNotifications=True, body=EVENT2).execute()
+e = CAL.events().insert(calendarId='primary',
+                sendNotifications=True, body=EVENT3).execute()
