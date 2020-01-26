@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>NStoGC - Upload NBA schedule to your Google Calendar</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{%  static "mainapp/vendor/bootstrap/css/bootstrap.min.css"%}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{% static "mainapp/vendor/fontawesome-free/css/all.min.css"%}" rel="stylesheet">
+  <link href="{% static "mainapp/vendor/simple-line-icons/css/simple-line-icons.css"%}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static "mainapp/css/landing-page.min.css"%}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="364773296968-bba6adpn0acd5n3f6u6lai44g818ake4.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script>
+                function onSuccess(googleUser) {
+                  console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+                }</script>
+                <script>
+                function onFailure(error) {
+                  console.log(error);
+                }</script>
+              <script>
+                function renderButton() {
+                  gapi.signin2.render('my-signin2', {
+                    'scope': 'profile email',
+                    'width': 650,
+                    'height': 70,
+                    'longtitle': true,
+                    'theme': 'dark',
+                    'onsuccess': onSuccess,
+                    'onfailure': onFailure
+                  });
+                }
+                </script>
+
+</head>
+
+<body>
+  {% load static %}
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <h1><a class="navbar-brand" href="#">NS to GC</a></h1>
+       <a href="#" onclick="signOut();">Sign out</a>
+    </div>
+  </nav>
+
+ {% block content %}{% endblock %}
+
+  <!-- Footer -->
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+          <ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="#">About</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Contact</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Terms of Use</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Privacy Policy</a>
+            </li>
+          </ul>
+          <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2019. All Rights Reserved.</p>
+        </div>
+        <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-facebook fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-instagram fa-2x fa-fw"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static "mainapp/vendor/jquery/jquery.min.js"%}></script>
+  <script src="{% static "mainapp/vendor/bootstrap/js/bootstrap.bundle.min.js"%}></script>
+
+  <!-- Google Connect JavaScript -->
+  <script>
+      function onSignIn(googleUser) {
+          var profile = googleUser.getBasicProfile();
+          console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+          console.log('Name: ' + profile.getName());
+          console.log('Image URL: ' + profile.getImageUrl());
+          console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        }
+  </script>
+    <script>
+      function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+        });
+      }
+    </script>
+
+</body>
+
+</html>
