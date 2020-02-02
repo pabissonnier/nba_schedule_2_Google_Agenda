@@ -2,12 +2,20 @@ function onSuccess(googleUser) {
   console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
   var profile = googleUser.getBasicProfile();
   console.log('Email: ' + profile.getEmail());
-  document.getElementById('signinbutton').style.visibility = 'none';
-  window.location = '/upload';
+  var main_block = document.getElementById('mainblock');
+  main_block.style.display = 'none';
+  var signout_button = document.getElementById('signout');
+  signout_button.style.visibility = 'visible';
+  var name = profile.getName();
+  var account_button = document.getElementById('account');
+  account_button.style.visibility = 'visible';
+  account_button.innerHTML = name;
 }
+
 function onFailure(error) {
-console.log(error);
+console.log(error); // add error message visible
 }
+
 function renderButton() {
 gapi.signin2.render('my-signin2', {
 'scope': 'profile email',
@@ -21,9 +29,6 @@ gapi.signin2.render('my-signin2', {
 }
 
 function onSignIn(googleUser) {
-  var signin_button = document.getElementById('my-signin2');
-  var signout_button = document.getElementById('signout');
-  signin_button.style.visibility = 'none';
   var profile = googleUser.getBasicProfile();
   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
   console.log('Name: ' + profile.getName());
