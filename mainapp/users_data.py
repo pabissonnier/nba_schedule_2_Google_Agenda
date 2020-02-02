@@ -11,3 +11,4 @@ def get_teams_agenda(team_list):
         schedule_list.append(team_db_h)
         schedule_list.append(team_db_v)
     return schedule_list
+
