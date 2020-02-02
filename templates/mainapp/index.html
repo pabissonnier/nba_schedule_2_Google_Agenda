@@ -146,51 +146,51 @@
       <div class="row no-gutters">
           <div class="col-lg-10 order-lg-1 my-auto showcase-text">
             <h1>Pick the team(s) you want to follow</h1>
-              <form>
+              <form action="{% url 'home' %}" method="get">
                   <div class="row">
                       <div class="col-lg-6">
                           <h2>Eastern conference</h2>
                           <div>
-                              <input type="checkbox" id="teambox" name="hawks">
+                              <input type="checkbox" id="teambox" name="team" value="hawks">
                               <label for="scales">Atlanta Haws</label>
                           </div>
                           <div>
-                              <input type="checkbox" id="teambox" name="celtics">
+                              <input type="checkbox" id="teambox" name="team" value="celtics">
                               <label for="scales">Boston Celtics</label>
                           </div>
                           <div>
-                              <input type="checkbox" id="teambox" name="nets">
+                              <input type="checkbox" id="teambox" name="team" value="nets">
                               <label for="scales">Brooklyn Nets</label>
                           </div>
                           <div>
-                              <input type="checkbox" id="teambox" name="hornets">
+                              <input type="checkbox" id="teambox" name="team" value="hornets">
                               <label for="scales">Charlotte Hornets</label>
                           </div>
                           <div>
-                              <input type="checkbox" id="teambox" name="bulls">
+                              <input type="checkbox" id="teambox" name="team" value="bulls">
                               <label for="scales">Chicago Bulls</label>
                           </div>
                       </div>
                       <div class="col-lg-6">
                           <h2>Western conference</h2>
                           <div>
-                              <input type="checkbox" id="teambox" name="mavericks">
+                              <input type="checkbox" id="teambox" name="team" value="mavericks">
                               <label for="scales">Dallas Mavericks</label>
                           </div>
                           <div>
-                              <input type="checkbox" id="teambox" name="nuggets">
+                              <input type="checkbox" id="teambox" name="team" value="nuggets">
                               <label for="scales">Denver Nuggets</label>
                           </div>
                           <div>
-                              <input type="checkbox" id="teambox" name="warriors">
+                              <input type="checkbox" id="teambox" name="team" value="warriors">
                               <label for="scales">Golden State Warriors</label>
                           </div>
                           <div>
-                              <input type="checkbox" id="teambox" name="rockets">
+                              <input type="checkbox" id="teambox" name="team" value="rockets">
                               <label for="scales">Houston Rockets</label>
                           </div>
                           <div>
-                              <input type="checkbox" id="teambox" name="clippers">
+                              <input type="checkbox" id="teambox" name="team" value="clippers">
                               <label for="scales">Los Angeles Clippers</label>
                           </div>
                       </div>
@@ -201,6 +201,9 @@
                               </div>
                           </div>
                       </div>
+                      {% for team in teams %}
+                          {{ team }}
+                      {%  endfor %}
                   </div>
               </form>
           </div>
