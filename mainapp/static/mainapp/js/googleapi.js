@@ -2,7 +2,7 @@ function onSuccess(googleUser) {
   console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
   var profile = googleUser.getBasicProfile();
   console.log('Email: ' + profile.getEmail());
-  var main_block = document.getElementById('mainblock');
+  var main_block = document.getElementById('homeblock');
   main_block.style.display = 'none';
   var signout_button = document.getElementById('signout');
   signout_button.style.visibility = 'visible';
@@ -10,6 +10,8 @@ function onSuccess(googleUser) {
   var account_button = document.getElementById('account');
   account_button.style.visibility = 'visible';
   account_button.innerHTML = name;
+  var upload_block = document.getElementById('upload_block')
+  upload_block.style.display = 'block';
 }
 
 function onFailure(error) {
