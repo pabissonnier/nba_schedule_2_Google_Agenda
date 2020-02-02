@@ -22,6 +22,7 @@ from mainapp import views as mainapp_views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', mainapp_views.index, name='home'),
+    url(r'^upload/', mainapp_views.upload_page, name='upload'),
 ]
 
 

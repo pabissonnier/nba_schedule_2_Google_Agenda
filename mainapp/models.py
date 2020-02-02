@@ -13,3 +13,4 @@ class Schedule(models.Model):
 
     def __str__(self):
         return self.date
+
