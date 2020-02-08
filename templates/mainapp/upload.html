@@ -1,6 +1,80 @@
 {% extends 'mainapp/layout.html' %}
 
 {% block content %}
+     <!-- Upload section -->
+  <section id="upload_block">
+    <div class="container-fluid p-0 text-center">
+      <div class="row no-gutters justify-content-center">
+          <div class="col-lg-10 order-lg-1 my-auto showcase-text">
+            <h1>Pick the team(s) you want to follow</h1>
+              <form action="{% url 'home' %}" method="get">
+                  <div class="row">
+                      <div class="col-lg-6">
+                          <h2>Eastern conference</h2>
+                          <div>
+                              <input type="checkbox" id="teambox" name="team" value="Atlanta Hawks">
+                              <label for="scales">Atlanta Hawks</label>
+                          </div>
+                          <div>
+                              <input type="checkbox" id="teambox" name="team" value="Boston Celtics">
+                              <label for="scales">Boston Celtics</label>
+                          </div>
+                          <div>
+                              <input type="checkbox" id="teambox" name="team" value="Brooklyn Nets">
+                              <label for="scales">Brooklyn Nets</label>
+                          </div>
+                          <div>
+                              <input type="checkbox" id="teambox" name="team" value="Charlotte Hornets">
+                              <label for="scales">Charlotte Hornets</label>
+                          </div>
+                          <div>
+                              <input type="checkbox" id="teambox" name="team" value="Chicago Bulls">
+                              <label for="scales">Chicago Bulls</label>
+                          </div>
+                      </div>
+                      <div class="col-lg-6">
+                          <h2>Western conference</h2>
+                          <div>
+                              <input type="checkbox" id="teambox" name="team" value="Dallas Mavericks">
+                              <label for="scales">Dallas Mavericks</label>
+                          </div>
+                          <div>
+                              <input type="checkbox" id="teambox" name="team" value="Denver Nuggets">
+                              <label for="scales">Denver Nuggets</label>
+                          </div>
+                          <div>
+                              <input type="checkbox" id="teambox" name="team" value="Golden State Warriors">
+                              <label for="scales">Golden State Warriors</label>
+                          </div>
+                          <div>
+                              <input type="checkbox" id="teambox" name="team" value="Houston Rockets">
+                              <label for="scales">Houston Rockets</label>
+                          </div>
+                          <div>
+                              <input type="checkbox" id="teambox" name="team" value="Los Angeles Clippers">
+                              <label for="scales">Los Angeles Clippers</label>
+                          </div>
+                      </div>
+                      <div class="container">
+                          <div class="row">
+                              <div class="col-lg-12 align-content-center">
+                                <button type="submit">Upload</button>
+                                  {%  if noteams %}
+                                      {{  message }}
+                                  {%  endif %}
+                              </div>
+                          </div>
+                      </div>
+                  {% for team in teams %}
+                      {{ team }}
+                  {%  endfor %}
+                  {{ schedule }}
+              </div>
+              </form>
+          </div>
+      </div>
+    </div>
+  </section>
     <p>Google Calendar API Quickstart</p>
 
     <!--Add buttons to initiate auth sequence and sign out-->
@@ -11,8 +85,8 @@
 
     <script type="text/javascript">
       // Client ID and API key from the Developer Console
-      var CLIENT_ID = '364773296968-8tdf4rkqvoo0ucdfp8ef7s11l5c36vfg.apps.googleusercontent.com';
-      var API_KEY = 'AIzaSyAiLWnfmeM_CM0Eyq34SWudLrvtMpxrKu0';
+      var CLIENT_ID = '364773296968-stbv6t169k4lqn664ed4smh9l7e6ugtr.apps.googleusercontent.com';
+      var API_KEY = 'KGcLbchhzb4fHS8e9btunwuv';
 
       // Array of API discovery doc URLs for APIs used by the quickstart
       var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];

@@ -12,11 +12,11 @@
         <div class="col-xl-9 mx-auto">
           <h1 class="mb-5">Upload the NBA Schedule to your Google Calendar now !</h1>
         </div>
-        <div class="col-md-10 col-lg-4 col-xl-7 mx-auto">
+        <div id="google_button_block" style="visibility: visible" class="col-md-10 col-lg-4 col-xl-7 mx-auto">
           <div id="signinbutton" style="visibility: visible"></div>
           <div id="my-signin2" onclick="onSignIn();"></div>
             <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-            <a href="/upload">updload</a>
+            <a id="upload_button" href="/upload" style="visibility: hidden">updload</a>
         </div>
       </div>
     </div>
@@ -138,78 +138,6 @@
       </div>
     </div>
   </section>
-  </section>
-
-  <!-- Upload section -->
-  <section style="display: none;" id="upload_block">
-    <div class="container-fluid p-0 text-center">
-      <div class="row no-gutters justify-content-center">
-          <div class="col-lg-10 order-lg-1 my-auto showcase-text">
-            <h1>Pick the team(s) you want to follow</h1>
-              <form action="{% url 'home' %}" method="get">
-                  <div class="row">
-                      <div class="col-lg-6">
-                          <h2>Eastern conference</h2>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Atlanta Hawks">
-                              <label for="scales">Atlanta Hawks</label>
-                          </div>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Boston Celtics">
-                              <label for="scales">Boston Celtics</label>
-                          </div>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Brooklyn Nets">
-                              <label for="scales">Brooklyn Nets</label>
-                          </div>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Charlotte Hornets">
-                              <label for="scales">Charlotte Hornets</label>
-                          </div>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Chicago Bulls">
-                              <label for="scales">Chicago Bulls</label>
-                          </div>
-                      </div>
-                      <div class="col-lg-6">
-                          <h2>Western conference</h2>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Dallas Mavericks">
-                              <label for="scales">Dallas Mavericks</label>
-                          </div>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Denver Nuggets">
-                              <label for="scales">Denver Nuggets</label>
-                          </div>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Golden State Warriors">
-                              <label for="scales">Golden State Warriors</label>
-                          </div>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Houston Rockets">
-                              <label for="scales">Houston Rockets</label>
-                          </div>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Los Angeles Clippers">
-                              <label for="scales">Los Angeles Clippers</label>
-                          </div>
-                      </div>
-                      <div class="container">
-                          <div class="row">
-                              <div class="col-lg-12 align-content-center">
-                                <button type="submit">Upload</button>
-                              </div>
-                          </div>
-                      </div>
-                      {% for team in teams %}
-                          {{ team }}
-                      {%  endfor %}
-                      {{ schedule }}
-                  </div>
-              </form>
-          </div>
-      </div>
-    </div>
   </section>
 
   {%  endblock %}

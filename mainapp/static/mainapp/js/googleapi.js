@@ -2,16 +2,16 @@ function onSuccess(googleUser) {
   console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
   var profile = googleUser.getBasicProfile();
   console.log('Email: ' + profile.getEmail());
-  var main_block = document.getElementById('homeblock');
-  main_block.style.display = 'none';
   var signout_button = document.getElementById('signout');
   signout_button.style.visibility = 'visible';
   var name = profile.getGivenName();
+  var upload_button = document.getElementById('upload_button');
+  upload_button.style.visibility = 'visible';
   var account_button = document.getElementById('account');
   account_button.style.visibility = 'visible';
   account_button.innerHTML = name;
-  var upload_block = document.getElementById('upload_block')
-  upload_block.style.display = 'block';
+  var google_button_block = document.getElementById('google_button_block');
+  google_button_block.style.visibility = 'hidden';
 }
 
 function onFailure(error) {
@@ -42,7 +42,7 @@ function onSignIn(googleUser) {
 function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(function () {
-    window.location = '/';
+    window.location.assign( '/');
   });
 }
 
