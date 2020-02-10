@@ -65,13 +65,12 @@
                               </div>
                           </div>
                       </div>
-                  {% for team in teams %}
-                      {{ team }}
-                  {%  endfor %}
+                {{ teams }}
                   {% for game in games %}
-                      {{ game }}
+                      <ul>
+                        <li>{{ game }}</li>
+                      </ul>
                   {%  endfor %}
-                  {{ schedule }}
               </div>
               </form>
           </div>
