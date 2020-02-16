@@ -12,7 +12,21 @@ def calendar_connection():
         flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
         creds = tools.run_flow(flow, store)
     service = build('calendar', 'v3', http=creds.authorize(Http()))
+    return service
 
+
+def calendar_insertion(service):
+    calendar = {
+        'summary': 'Your NBA team(s) Schedule',
+        'timeZone': 'America/Los_Angeles'
+    }
+
+    created_calendar = service.calendars().insert(body=calendar).execute()
+
+    print(created_calendar['id'])
+
+
+def event_insertion(service, event):
     calendar_list_entry = service.calendarList().get(calendarId='primary').execute()
     if calendar_list_entry['accessRole']:
         event = {
@@ -32,4 +46,4 @@ def calendar_connection():
         event = service.events().insert(calendarId='primary', body=event).execute()
         print(f"The event has been created! View it at {event.get('htmlLink')}!")
 
-calendar_connection()
+calendar_insertion(calendar_connection())
