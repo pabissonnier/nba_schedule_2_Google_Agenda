@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+
+{% load socialaccount %}
+{%  providers_media_js %}
+
 <html lang="en">
 
 <head>
@@ -24,7 +28,7 @@
   <!-- Custom styles for this template -->
   <meta name="google-signin-scope" content="profile email">
   <meta name="google-signin-client_id" content="364773296968-stbv6t169k4lqn664ed4smh9l7e6ugtr.apps.googleusercontent.com">
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <script src="https://apis.google.com/js/platform.js" ></script>
 </head>
 
 <body>
@@ -39,12 +43,14 @@
             <div class="col-lg-10">
                 <h1><a class="navbar-brand" href="/">NS to GC</a></h1>
             </div>
+            {% if user.is_authenticated %}
             <div class="col-lg-1 my-auto">
                 <a href="#" id="account" style="visibility: hidden;"></a>
             </div>
             <div class="col-lg-1 my-auto">
-                <a href="/" id="signout" style="visibility: visible;" onclick="signOut();">Sign out</a>
+                <a href="/" id="signout" style="visibility: hidden;" onclick="signOut();">Sign out</a>
             </div>
+            {% endif %}
        </div>
     </div>
   </nav>
@@ -101,6 +107,18 @@
   <!-- Bootstrap core JavaScript -->
   <script src="{% static "mainapp/vendor/jquery/jquery.min.js"%}></script>
   <script src="{% static "mainapp/vendor/bootstrap/js/bootstrap.bundle.min.js"%}></script>
+
+    <script>
+    if (auth2.isSignedIn.get()) {
+  var profile = auth2.currentUser.get().getBasicProfile();
+  console.log('ID: ' + profile.getId());
+  console.log('Full Name: ' + profile.getName());
+  console.log('Given Name: ' + profile.getGivenName());
+  console.log('Family Name: ' + profile.getFamilyName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail());
+}
+    </script>
 </body>
 
 </html>

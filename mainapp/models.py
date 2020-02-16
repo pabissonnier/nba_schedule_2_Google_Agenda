@@ -32,10 +32,7 @@ class Schedule(models.Model):
         gamed = game.date
         gameh = datetime.strptime(game.hour, '%H:%M')
         gameh_end = gameh + timedelta(hours=3)
-        if hteam not in teams_chosen:
-            summary = vteam+' @ '+hteam
-        elif vteam not in teams_chosen:
-            summary = hteam + ' VS '+vteam
+        summary = vteam + ' @ '+hteam
         start_date = gamed+'T'+ datetime.strftime(gameh, '%H:%M:%S')
         end_date = gamed+'T'+datetime.strftime(gameh_end, '%H:%M:%S')
         location = "Stadium"

@@ -4159,7 +4159,6 @@ input[type="button"].btn-block {
 
 .navbar > .container,
 .navbar > .container-fluid {
-  display: -ms-flexbox;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   -ms-flex-align: center;
