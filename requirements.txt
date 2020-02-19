@@ -1,3 +1,5 @@
+wikipedia
+requests
 google-api-python-client
 httplib2
 googleapiclient
