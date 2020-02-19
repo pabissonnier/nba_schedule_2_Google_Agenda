@@ -10,12 +10,13 @@ game_list = [{'summary': 'Indiana Pacers @ Denver Nuggets', 'location': 'Stadium
 {'summary': 'San Antonio Spurs @ Denver Nuggets', 'location': 'Stadium', 'description': 'Your schedule from NS2GC', 'start': {'dateTime': '2020-02-10T21:00:00', 'timeZone': 'America/New_York'}, 'end': {'dateTime': '2020-02-10T00:00:00', 'timeZone': 'America/New_York'}},
 {'summary': 'Los Angeles Lakers @ Denver Nuggets', 'location': 'Stadium', 'description': 'Your schedule from NS2GC', 'start': {'dateTime': '2020-02-12T22:00:00', 'timeZone': 'America/New_York'}, 'end': {'dateTime': '2020-02-12T01:00:00', 'timeZone': 'America/New_York'}}]
 
+
 def calendar_connection():
     SCOPES = "https://www.googleapis.com/auth/calendar"
-    store = file.Storage('token.json')
+    store = file.Storage('mainapp/token.json')
     creds = store.get()
     if not creds or creds.invalid:
-        flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
+        flow = client.flow_from_clientsecrets('mainapp/credentials.json', SCOPES)
         creds = tools.run_flow(flow, store)
     service = build('calendar', 'v3', http=creds.authorize(Http()))
     return service
@@ -40,7 +41,3 @@ def event_insertion(service, calendar_id, event):
         print(f"The event has been created! View it at {event.get('htmlLink')}!")
 
 
-service = calendar_connection()
-calendar_id = calendar_insertion(service)
-for game in game_list:
-    event_insertion(service, calendar_id, game)

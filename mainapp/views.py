@@ -14,14 +14,14 @@ def upload_page(request):
     teams_list = request.GET.getlist('team')
     schedule_list = Schedule.get_teams_agenda(schedule, teams_list)
     games_list = []
+    service = calendar_connection()
+    calendar_id = calendar_insertion(service)
     for schedule in schedule_list:
         for game in schedule:
             game_dict = Schedule.extraction_to_gformat(schedule, game, teams_list)
             games_list.append(game_dict)
-            """service = calendar_connection()
-            calendar_insertion(service)
             for game in games_list:
-                event_insertion(service, game)"""
+                event_insertion(service, calendar_id, game)
 
     context = {
         'teams': teams_list,

@@ -29,12 +29,19 @@ class Schedule(models.Model):
         event = {}
         hteam = game.hteam
         vteam = game.vteam
-        gamed = game.date
-        gameh = datetime.strptime(game.hour, '%H:%M')
-        gameh_end = gameh + timedelta(hours=3)
+        gameh = game.hour #string
+        game_day = game.date
+        gameh_dt = datetime.strptime(gameh, '%H:%M')
+        gameh_end = datetime.strftime(gameh_dt + timedelta(hours=3), '%H:%M')
+        gameh_end_dt = datetime.strptime(gameh_end, '%H:%M')
+        if gameh_end_dt < gameh_dt:
+            gamed = datetime.strptime(game_day, '%Y-%m-%d') + timedelta(days=1)
+        else:
+            gamed = datetime.strptime(game_day, '%Y-%m-%d')
+
         summary = vteam + ' @ '+hteam
-        start_date = gamed+'T'+ datetime.strftime(gameh, '%H:%M:%S')
-        end_date = gamed+'T'+datetime.strftime(gameh_end, '%H:%M:%S')
+        start_date = datetime.strftime(gamed, '%Y-%m-%d') + 'T' + datetime.strftime(gameh_dt, '%H:%M') + ':00'
+        end_date = datetime.strftime(gamed, '%Y-%m-%d') + 'T' + datetime.strftime(gameh_end_dt, '%H:%M') + ':00'
         location = "Stadium"
         description = "Your schedule from NS2GC"
         timezone = "America/New_York"
@@ -48,6 +55,4 @@ class Schedule(models.Model):
         event['end']['dateTime'] = end_date
         event['end']['timeZone'] = timezone
         return event
-
-
 

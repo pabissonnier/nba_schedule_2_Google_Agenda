@@ -2,10 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40d80ad6-1bb0-4601-be82-ef46da072686" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/users/profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/token.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/nba_schedule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/nba_schedule.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/calendar_insertion.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/calendar_insertion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/token.json" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/token.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nba_schedule/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/nba_schedule/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nba_schedule/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/nba_schedule/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/mainapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/mainapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,36 +30,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>overlay</find>
-      <find>masthead</find>
-      <find>mainapp_schedule</find>
-      <find>masthe</find>
-      <find>gapi</find>
-      <find>img</find>
-      <find>img {</find>
-      <find>&lt;a</find>
-      <find>a</find>
-      <find>signOut</find>
-      <find>.navbar {</find>
-      <find>credentials</find>
-      <find>quick</find>
-      <find>signout_button</find>
-      <find>authorize_button</find>
-      <find>authorizeButton</find>
-      <find>delt</find>
-      <find>script</find>
-      <find>container</find>
-      <find>service</find>
-      <find>onSign</find>
-      <find>authent</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -70,7 +55,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/users" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -84,7 +69,7 @@
       <recent name="C:\Users\pabis\OneDrive\Desktop\OC\Projets\nba_schedule\mainapp\static\mainapp\js" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.calendar_insertion">
+  <component name="RunManager" selected="Python.test">
     <configuration name="calendar_insertion" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="nba_schedule" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -129,6 +114,50 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="nba_schedule" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mainapp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mainapp/models.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="nba_schedule" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/mainapp" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mainapp/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test_calendar" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="nba_schedule" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -157,6 +186,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="nba_schedule.settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -176,6 +206,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.models" />
         <item itemvalue="Python.calendar_insertion" />
         <item itemvalue="Python.test_calendar" />
         <item itemvalue="Python.js_to_python" />
@@ -203,7 +235,9 @@
       <workItem from="1580929755585" duration="192000" />
       <workItem from="1581179076443" duration="28618000" />
       <workItem from="1581862654935" duration="13672000" />
-      <workItem from="1582104516381" duration="727000" />
+      <workItem from="1582104516381" duration="2692000" />
+      <workItem from="1582108030615" duration="8365000" />
+      <workItem from="1582124083409" duration="1030000" />
     </task>
     <servers />
   </component>
@@ -211,22 +245,48 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="550" y="220" width="424" height="484" key="FileChooserDialogImpl" timestamp="1582104988055">
+    <state x="550" y="220" width="424" height="484" key="FileChooserDialogImpl" timestamp="1582106319666">
       <screen x="67" y="27" width="1411" height="871" />
     </state>
-    <state x="550" y="220" width="424" height="484" key="FileChooserDialogImpl/67.27.1411.871@67.27.1411.871" timestamp="1582104988055" />
-    <state x="261" y="97" key="SettingsEditor" timestamp="1582105107756">
+    <state x="550" y="220" width="424" height="484" key="FileChooserDialogImpl/67.27.1411.871@67.27.1411.871" timestamp="1582106319666" />
+    <state width="1345" height="206" key="GridCell.Tab.0.bottom" timestamp="1582123692080">
       <screen x="67" y="27" width="1411" height="871" />
     </state>
-    <state x="261" y="97" key="SettingsEditor/67.27.1411.871@67.27.1411.871" timestamp="1582105107756" />
-    <state x="428" y="290" key="com.intellij.ide.util.TipDialog" timestamp="1582104514874">
+    <state width="1345" height="206" key="GridCell.Tab.0.bottom/67.27.1411.871@67.27.1411.871" timestamp="1582123692080" />
+    <state width="1345" height="206" key="GridCell.Tab.0.center" timestamp="1582123692078">
       <screen x="67" y="27" width="1411" height="871" />
     </state>
-    <state x="428" y="290" key="com.intellij.ide.util.TipDialog/67.27.1411.871@67.27.1411.871" timestamp="1582104514874" />
+    <state width="1345" height="206" key="GridCell.Tab.0.center/67.27.1411.871@67.27.1411.871" timestamp="1582123692078" />
+    <state width="1345" height="206" key="GridCell.Tab.0.left" timestamp="1582123692077">
+      <screen x="67" y="27" width="1411" height="871" />
+    </state>
+    <state width="1345" height="206" key="GridCell.Tab.0.left/67.27.1411.871@67.27.1411.871" timestamp="1582123692077" />
+    <state width="1345" height="206" key="GridCell.Tab.0.right" timestamp="1582123692079">
+      <screen x="67" y="27" width="1411" height="871" />
+    </state>
+    <state width="1345" height="206" key="GridCell.Tab.0.right/67.27.1411.871@67.27.1411.871" timestamp="1582123692079" />
+    <state x="261" y="97" key="SettingsEditor" timestamp="1582107179023">
+      <screen x="67" y="27" width="1411" height="871" />
+    </state>
+    <state x="261" y="97" key="SettingsEditor/67.27.1411.871@67.27.1411.871" timestamp="1582107179023" />
+    <state x="428" y="290" key="com.intellij.ide.util.TipDialog" timestamp="1582124082807">
+      <screen x="67" y="27" width="1411" height="871" />
+    </state>
+    <state x="428" y="290" key="com.intellij.ide.util.TipDialog/67.27.1411.871@67.27.1411.871" timestamp="1582124082807" />
+    <state x="540" y="382" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582125168343">
+      <screen x="67" y="27" width="1411" height="871" />
+    </state>
+    <state x="540" y="382" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1411.871@67.27.1411.871" timestamp="1582125168343" />
+    <state x="486" y="31" width="704" height="867" key="find.popup" timestamp="1582124687408">
+      <screen x="67" y="27" width="1411" height="871" />
+    </state>
+    <state x="486" y="31" width="704" height="867" key="find.popup/67.27.1411.871@67.27.1411.871" timestamp="1582124687408" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/nba_schedule$calendar_insertion.coverage" NAME="calendar_insertion Coverage Results" MODIFIED="1581963606530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mainapp" />
     <SUITE FILE_PATH="coverage/nba_schedule$js_to_python.coverage" NAME="js_to_python Coverage Results" MODIFIED="1580057583764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mainapp" />
     <SUITE FILE_PATH="coverage/nba_schedule$test_calendar.coverage" NAME="test_calendar Coverage Results" MODIFIED="1581186861489" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mainapp" />
+    <SUITE FILE_PATH="coverage/nba_schedule_2_Google_Agenda$models.coverage" NAME="models Coverage Results" MODIFIED="1582123584694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mainapp" />
+    <SUITE FILE_PATH="coverage/nba_schedule_2_Google_Agenda$test.coverage" NAME="test Coverage Results" MODIFIED="1582123692008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mainapp" />
   </component>
 </project>

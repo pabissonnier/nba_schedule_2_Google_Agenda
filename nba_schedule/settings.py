@@ -88,9 +88,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'nba_schedule',
-        'USER': 'postgres',
+        'USER': 'pabissonnier',
         'PASSWORD': '458127',
-        'HOST': '',
+        'HOST': 'localhost',
         'PORT': '5432',
 
     }

@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls import include, url
 from mainapp import views as mainapp_views
+from users import views as user_views
 from django.views.generic import TemplateView
 from django.contrib.auth import views as auth_views
 
@@ -26,7 +27,9 @@ urlpatterns = [
     url(r'^upload/', mainapp_views.upload_page, name='upload'),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
-
+    url(r'^profile/', user_views.profile, name='profile'),
+    url(r'^contact/', user_views.contact, name='contact'),
+    url(r'^legalmentions/', user_views.mentions, name='mentions'),
 ]
 
 

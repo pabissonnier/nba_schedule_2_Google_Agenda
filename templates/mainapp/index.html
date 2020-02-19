@@ -43,14 +43,12 @@
             <div class="col-lg-10">
                 <h1><a class="navbar-brand" href="/">NS to GC</a></h1>
             </div>
-            {% if user.is_authenticated %}
             <div class="col-lg-1 my-auto">
                 <a href="#" id="account">{{ user.username }}</a>
             </div>
             <div class="col-lg-1 my-auto">
-                <a href={% url 'logout' %}" id="signout">Sign out</a>
+                <a href="{% url 'logout' %}" id="signout">Sign out</a>
             </div>
-            {%  endif %}
         </div>
     </div>
   </nav>
@@ -65,16 +63,16 @@
         <div class="col-xl-9 mx-auto">
           <h1 class="mb-5">Upload the NBA Schedule to your Google Calendar now !</h1>
         </div>
-        <div id="google_button_block" style="visibility: visible" class="col-md-10 col-lg-4 col-xl-7 mx-auto">
-          <div id="signinbutton" style="visibility: visible"></div>
-          <div id="my-signin2" onclick="onSignIn();"></div>
-            {% if user.is_authenticated %}
-            <a id="upload_button" href="/upload">updload</a>
-            {% else %}
-            <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-            <a href="{%  provider_login_url "google" %}">Google connect</a>
+      <div class="row">
+      <div class="col-xl-9 mx-auto">
+        {% if user.is_authenticated %}
+        <a id="upload_button" href="/upload">updload</a>
+        {% else %}
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+        <a href="{%  provider_login_url "google" %}">Google connect</a>
             {%  endif %}
-        </div>
+      </div>
+      </div>
       </div>
     </div>
   </header>
