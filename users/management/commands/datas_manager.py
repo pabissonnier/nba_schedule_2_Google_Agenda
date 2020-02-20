@@ -66,7 +66,47 @@ class DatasManager:
             teams_names.append(team_couple)
         return teams_names
 
+    def get_nba_players(self, teams_names):
+        for team in teams_names:
+            team_id = team[0]
+            team_name = team[1]
+            url = "https://api-nba-v1.p.rapidapi.com/players/teamId/{0}".format(team_id)
+            headers = {
+            'x-rapidapi-host': "api-nba-v1.p.rapidapi.com",
+            'x-rapidapi-key': "de42e7f1dcmsh2072ecc62d751f3p11e33cjsndbb29dec59a2"
+            }
 
+            json_loads = json.loads(requests.request("GET", url, headers=headers).text)
+            nba_players_list = []
+            for player in json_loads["api"]["players"]:
+                nba_player = []
+                f_name = player["firstName"]
+                l_name = player["lastName"]
+                years = player["yearsPro"]
+                college = player["collegeName"]
+                country = player["country"]
+                b_date = player["dateOfBirth"]
+                debut = player["startNba"]
+                height = player["heightInMeters"]
+                weight = player["weightInKilograms"]
+                number = player["leagues"]["standard"]["jersey"]
+                active = player["leagues"]["standard"]["active"]
+                position = player["leagues"]["standard"]["pos"]
+                nba_player.append(f_name)
+                nba_player.append(l_name)
+                nba_player.append(team_name)
+                nba_player.append(years)
+                nba_player.append(college)
+                nba_player.append(country)
+                nba_player.append(b_date)
+                nba_player.append(debut)
+                nba_player.append(height)
+                nba_player.append(weight)
+                nba_player.append(number)
+                nba_player.append(active)
+                nba_player.append(position)
+                nba_players_list.append(nba_player)
+        return nba_players_list
 
 
 
