@@ -5,7 +5,7 @@ from datetime import date, timedelta, datetime
 import wikipedia
 import requests
 
-from mainapp.models import Schedule
+from users.models import Team
 
 
 class DatasManager:
@@ -26,8 +26,10 @@ class DatasManager:
 
         return json.loads(response.text)
 
+    def get_stadium(self, team):
+        pass
+
     def get_teams_from_json(self, json_loads):
-        """ Get infos from schedule API """
         nba_teams_list = []
         for team in json_loads["api"]["teams"]:
             nba_team = []
@@ -35,6 +37,7 @@ class DatasManager:
             logo = team["logo"]
             conference = team["leagues"]["standard"]["confName"]
             division = team["leagues"]["standard"]["divName"]
+            stadium = "#"
             nba_team.append(name)
             nba_team.append(logo)
             nba_team.append(conference)
@@ -45,4 +48,14 @@ class DatasManager:
                 pass
         return nba_teams_list
 
+    def team_insertion(self, nba_teams_list):
+        for team_list in nba_teams_list:
+            team_name = team_list[0]
+            team_pic = team_list[1]
+            team_conf = team_list[2]
+            team_div = team_list[3]
+            team_stadium = team_list[4]
+            insertion_datas = Team(date=game_date, hour=game_hour, vteam=game_vteam, hteam=game_hteam,
+                                       game_type=game_type)
+            insertion_datas.save()
 
