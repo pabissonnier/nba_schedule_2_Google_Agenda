@@ -6,6 +6,7 @@ class Team(models.Model):
     name = models.CharField(max_length=100)
     bio = models.CharField(max_length=250)
     stadium = models.CharField(max_length=100)
+    favorite = models.ManyToManyField(User, related_name='favorite', blank=True)
 
     def __str__(self):
         return self.name
