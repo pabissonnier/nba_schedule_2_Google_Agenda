@@ -45,7 +45,7 @@
             </div>
             {% if user.is_authenticated %}
             <div class="col-lg-1 my-auto">
-                <a href="#" id="account">{{ user.username }}</a>
+                <a href="{% url 'profile' %}" id="account">{{ user.username }}</a>
             </div>
             <div class="col-lg-1 my-auto">
                 <a href={% url 'logout' %}" id="signout">Sign out</a>
@@ -119,11 +119,10 @@
                           </div>
                       </div>
                 {{ teams }}
-                  {% for game in games %}
-                      <ul>
-                        <li>{{ game }}</li>
-                      </ul>
-                  {%  endfor %}
+                  {{ schedule }}
+                  {{ games }}
+                  {{ service }}
+                  {{ calendar_id }}
               </div>
               </form>
           </div>

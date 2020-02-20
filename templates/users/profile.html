@@ -1,12 +1,145 @@
-{% extends 'mainapp/layout.html' %}
+<!DOCTYPE html>
 
-{% block content %}
-  <div class="content-section-logout">
+{% load socialaccount %}
+{%  providers_media_js %}
+
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>NStoGC - Upload NBA schedule to your Google Calendar</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{%  static "mainapp/vendor/bootstrap/css/bootstrap.min.css"%}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="{% static "mainapp/vendor/fontawesome-free/css/all.min.css"%}" rel="stylesheet">
+  <link href="{% static "mainapp/vendor/simple-line-icons/css/simple-line-icons.css"%}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static "mainapp/css/landing-page.min.css"%}" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="364773296968-stbv6t169k4lqn664ed4smh9l7e6ugtr.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" ></script>
+</head>
+
+<body>
+  {% load static %}
+  <!-- Google Connect JavaScript -->
+  <script src="{% static "mainapp/js/googleapi.js" %}"></script>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10">
+                <h1><a class="navbar-brand" href="/">NS to GC</a></h1>
+            </div>
+            <div class="col-lg-1 my-auto">
+                <a href=href="{% url 'profile' %}" id="account">{{ user.username }}</a>
+            </div>
+            <div class="col-lg-1 my-auto">
+                <a href="{% url 'logout' %}" id="signout">Sign out</a>
+            </div>
+        </div>
+    </div>
+  </nav>
+
+{% if messages %}
+        {% for message in messages %}
+              <div class="alert alert-success">
+                <div class="alert alert-{{ message.tags }}">{{  message }}</div>
+              </div>
+        {% endfor %}
+    {% endif %}
+  <div class="content-section-profile">
     <div class="row justify-content-md-center">
         <div class="col-md-12 text-center">
-          <h2>Vous êtes maintenant déconnecté</h2>
+          <h2>Vos informations</h2>
           <hr class="divider my-4">
         </div>
       </div>
     </div>
-{% endblock %}
+    <div class="row justify-content-md-center">
+        <div class="col-md-8">
+            <div class="profile-bloc">
+                <div class="profile-text-bloc">
+                   <h4>{{ user.username }}</h4>
+                    <p>{{ user.email }}</p>
+                </div>
+            </div>
+        </div>
+      </div>
+<!-- Footer -->
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+          <ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="#">About</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Contact</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Terms of Use</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#">Privacy Policy</a>
+            </li>
+          </ul>
+          <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2019. All Rights Reserved.</p>
+        </div>
+        <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-facebook fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item mr-3">
+              <a href="#">
+                <i class="fab fa-twitter-square fa-2x fa-fw"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#">
+                <i class="fab fa-instagram fa-2x fa-fw"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static "mainapp/vendor/jquery/jquery.min.js"%}></script>
+  <script src="{% static "mainapp/vendor/bootstrap/js/bootstrap.bundle.min.js"%}></script>
+
+    <script>
+    if (auth2.isSignedIn.get()) {
+  var profile = auth2.currentUser.get().getBasicProfile();
+  console.log('ID: ' + profile.getId());
+  console.log('Full Name: ' + profile.getName());
+  console.log('Given Name: ' + profile.getGivenName());
+  console.log('Family Name: ' + profile.getFamilyName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail());
+}
+    </script>
+</body>
+
+</html>

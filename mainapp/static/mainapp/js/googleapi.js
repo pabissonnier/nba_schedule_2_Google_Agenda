@@ -12,6 +12,9 @@ function onSuccess(googleUser) {
   account_button.innerHTML = name;
   var google_button_block = document.getElementById('google_button_block');
   google_button_block.style.visibility = 'hidden';
+  // The ID token you need to pass to your backend:
+  var id_token = googleUser.getAuthResponse().id_token;
+  console.log("ID Token: " + id_token);
 }
 
 function onFailure(error) {

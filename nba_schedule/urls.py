@@ -28,8 +28,8 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
     url(r'^logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     url(r'^profile/', user_views.profile, name='profile'),
-    url(r'^contact/', user_views.contact, name='contact'),
-    url(r'^legalmentions/', user_views.mentions, name='mentions'),
+    #url(r'^contact/', user_views.contact, name='contact'),
+    #url(r'^legalmentions/', user_views.mentions, name='mentions'),
 ]
 
 

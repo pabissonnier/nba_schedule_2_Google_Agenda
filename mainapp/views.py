@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from . import users_data
 from .models import Schedule
 from .calendar_insertion import calendar_connection, calendar_insertion, event_insertion
 
@@ -25,8 +24,10 @@ def upload_page(request):
 
     context = {
         'teams': teams_list,
-        'schedule': schedule_list,
-        'games': games_list,
+        'schedule': len(schedule_list),
+        'games': len(games_list),
+        #"service": service,
+        #'calendar_id': calendar_id,
     }
     return render(request, 'mainapp/upload.html', context)
 
