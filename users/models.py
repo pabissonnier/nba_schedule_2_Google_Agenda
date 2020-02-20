@@ -14,13 +14,23 @@ class Team(models.Model):
 
 
 class Player(models.Model):
-    name = models.CharField(max_length=100)
-    bio = models.CharField(max_length=250)
+    firstname = models.CharField(max_length=100, default='')
+    lastname = models.CharField(max_length=100, default='')
     team = models.OneToOneField(
         Team,
         on_delete=models.CASCADE,
         primary_key=True,
     )
+    years = models.CharField(max_length=100, default='')
+    college = models.CharField(max_length=100, default='')
+    country = models.CharField(max_length=100, default='')
+    birthdate = models.CharField(max_length=100, default='')
+    debut = models.CharField(max_length=100, default='')
+    height = models.CharField(max_length=100, default='')
+    weight = models.CharField(max_length=100, default='')
+    number = models.CharField(max_length=100, default='')
+    active = models.CharField(max_length=100, default='')
+    position = models.CharField(max_length=100, default='')
 
     def __str__(self):
-        return self.name
+        return self.lastname

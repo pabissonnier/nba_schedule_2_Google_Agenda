@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40d80ad6-1bb0-4601-be82-ef46da072686" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/users/migrations/0004_auto_20200220_1642.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/management/commands/datas_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/management/commands/datas_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +227,7 @@
       <workItem from="1582192769802" duration="5026000" />
       <workItem from="1582197960960" duration="1641000" />
       <workItem from="1582199832809" duration="6339000" />
-      <workItem from="1582210717767" duration="3157000" />
+      <workItem from="1582210717767" duration="3943000" />
     </task>
     <servers />
   </component>

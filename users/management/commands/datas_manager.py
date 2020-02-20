@@ -6,6 +6,7 @@ import wikipedia
 import requests
 
 from users.models import Team
+from users.models import Player
 
 
 class DatasManager:
@@ -67,6 +68,7 @@ class DatasManager:
         return teams_names
 
     def get_nba_players(self, teams_names):
+        nba_players_list = []
         for team in teams_names:
             team_id = team[0]
             team_name = team[1]
@@ -77,7 +79,7 @@ class DatasManager:
             }
 
             json_loads = json.loads(requests.request("GET", url, headers=headers).text)
-            nba_players_list = []
+
             for player in json_loads["api"]["players"]:
                 nba_player = []
                 f_name = player["firstName"]
@@ -89,28 +91,34 @@ class DatasManager:
                 debut = player["startNba"]
                 height = player["heightInMeters"]
                 weight = player["weightInKilograms"]
-                number = player["leagues"]["standard"]["jersey"]
-                active = player["leagues"]["standard"]["active"]
-                position = player["leagues"]["standard"]["pos"]
-                nba_player.append(f_name)
-                nba_player.append(l_name)
-                nba_player.append(team_name)
-                nba_player.append(years)
-                nba_player.append(college)
-                nba_player.append(country)
-                nba_player.append(b_date)
-                nba_player.append(debut)
-                nba_player.append(height)
-                nba_player.append(weight)
-                nba_player.append(number)
-                nba_player.append(active)
-                nba_player.append(position)
-                nba_players_list.append(nba_player)
-        return nba_players_list
+                if "standard" in player['leagues']:
+                    number = player["leagues"]["standard"]["jersey"]
+                    active = player["leagues"]["standard"]["active"]
+                    position = player["leagues"]["standard"]["pos"]
+                    nba_player.append(f_name)
+                    nba_player.append(l_name)
+                    nba_player.append(team_name)
+                    nba_player.append(years)
+                    nba_player.append(college)
+                    nba_player.append(country)
+                    nba_player.append(b_date)
+                    nba_player.append(debut)
+                    nba_player.append(height)
+                    nba_player.append(weight)
+                    nba_player.append(number)
+                    nba_player.append(active)
+                    nba_player.append(position)
+                    nba_players_list.append(nba_player)
+                return nba_players_list
 
-
-
-datas = DatasManager()
-extract = DatasManager.league_infos_extraction(datas)
-json_extract = DatasManager.get_teams_from_json(datas, extract)
-print(DatasManager.get_teams_names(datas, json_extract))
+    def players_insertion(self, nba_players_list):
+        """ Insert players in the DB """
+        for player_list in nba_players_list:
+            game_date = game_list[0]
+            game_hour = game_list[1]
+            game_vteam = game_list[2]
+            game_hteam = game_list[3]
+            game_type = "season"
+            insertion_datas = Schedule(date=game_date, hour=game_hour, vteam=game_vteam, hteam=game_hteam,
+                                       game_type=game_type)
+            insertion_datas.save()
