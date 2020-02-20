@@ -61,11 +61,13 @@ class DatasManager:
             team_couple = []
             team_name = team[1]
             team_id = team[0]
-            team_name = team_name.replace(' ', '_')
             team_couple.append(team_id)
             team_couple.append(team_name)
-            teams_names.append(team)
+            teams_names.append(team_couple)
         return teams_names
+
+
+
 
 
 datas = DatasManager()
