@@ -7,7 +7,6 @@ class Team(models.Model):
     picture = models.CharField(max_length=250)
     conference = models.CharField(max_length=25, default='')
     division = models.CharField(max_length=25, default='')
-    stadium = models.CharField(max_length=50, default='')
     favorite = models.ManyToManyField(User, related_name='favorite', blank=True)
 
     def __str__(self):

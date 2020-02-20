@@ -26,18 +26,16 @@ class DatasManager:
 
         return json.loads(response.text)
 
-    def get_stadium(self, team):
-        pass
-
     def get_teams_from_json(self, json_loads):
         nba_teams_list = []
         for team in json_loads["api"]["teams"]:
             nba_team = []
+            team_id = team["teamId"]
             name = team["fullName"]
             logo = team["logo"]
             conference = team["leagues"]["standard"]["confName"]
             division = team["leagues"]["standard"]["divName"]
-            stadium = "#"
+            nba_team.append(team_id)
             nba_team.append(name)
             nba_team.append(logo)
             nba_team.append(conference)
@@ -54,8 +52,23 @@ class DatasManager:
             team_pic = team_list[1]
             team_conf = team_list[2]
             team_div = team_list[3]
-            team_stadium = team_list[4]
-            insertion_datas = Team(date=game_date, hour=game_hour, vteam=game_vteam, hteam=game_hteam,
-                                       game_type=game_type)
+            insertion_datas = Team(name=team_name, picture=team_pic, conference=team_conf, division=team_div)
             insertion_datas.save()
 
+    def get_teams_names(self, nba_teams_list):
+        teams_names = []
+        for team in nba_teams_list:
+            team_couple = []
+            team_name = team[1]
+            team_id = team[0]
+            team_name = team_name.replace(' ', '_')
+            team_couple.append(team_id)
+            team_couple.append(team_name)
+            teams_names.append(team)
+        return teams_names
+
+
+datas = DatasManager()
+extract = DatasManager.league_infos_extraction(datas)
+json_extract = DatasManager.get_teams_from_json(datas, extract)
+print(DatasManager.get_teams_names(datas, json_extract))
