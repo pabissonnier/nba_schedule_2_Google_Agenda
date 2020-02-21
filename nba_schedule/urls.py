@@ -28,6 +28,9 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
     url(r'^logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     url(r'^profile/', user_views.profile, name='profile'),
+    #url(r'^favorite_product/$', user_views.favs, name='favorite_product'),
+    url(r'^favs/', user_views.show_favs, name='show_favs'),
+    url(r'^(?P<team_name>[0-9]+)/$', user_views.teams_detail, name='detail'),
     #url(r'^contact/', user_views.contact, name='contact'),
     #url(r'^legalmentions/', user_views.mentions, name='mentions'),
 ]
