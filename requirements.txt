@@ -4,3 +4,8 @@ google-api-python-client
 httplib2
 googleapiclient
 django
+django-debug-toolbar
+django-allauth
+psycopg2-binary
+oauth2client
+google_auth_oauthlib
