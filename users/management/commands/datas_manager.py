@@ -24,19 +24,19 @@ class DatasManager:
         }
 
         response = requests.request("GET", url, headers=headers)
-
-        return json.loads(response.text)
+        json_loads = json.loads(response.text)
+        return json_loads
 
     def get_teams_from_json(self, json_loads):
         nba_teams_list = []
         for team in json_loads["api"]["teams"]:
             nba_team = []
-            team_id = team["teamId"]
             name = team["fullName"]
             logo = team["logo"]
             conference = team["leagues"]["standard"]["confName"]
             division = team["leagues"]["standard"]["divName"]
-            nba_team.append(team_id)
+            url = name.replace(' ', '-').lower
+            nba_team.append(url)
             nba_team.append(name)
             nba_team.append(logo)
             nba_team.append(conference)
@@ -49,12 +49,16 @@ class DatasManager:
 
     def team_insertion(self, nba_teams_list):
         for team_list in nba_teams_list:
-            team_name = team_list[0]
-            team_pic = team_list[1]
-            team_conf = team_list[2]
-            team_div = team_list[3]
-            insertion_datas = Team(name=team_name, picture=team_pic, conference=team_conf, division=team_div)
+            team_id = team_list[0]
+            team_name = team_list[1]
+            team_pic = team_list[2]
+            team_conf = team_list[3]
+            team_div = team_list[4]
+            insertion_datas = Team(team_id=team_id, name=team_name, picture=team_pic, conference=team_conf, division=team_div)
             insertion_datas.save()
+
+
+# PLAYERS EXTRACTION
 
     def get_teams_names(self, nba_teams_list):
         teams_names = []
@@ -88,37 +92,33 @@ class DatasManager:
                 college = player["collegeName"]
                 country = player["country"]
                 b_date = player["dateOfBirth"]
-                debut = player["startNba"]
                 height = player["heightInMeters"]
                 weight = player["weightInKilograms"]
                 if "standard" in player['leagues']:
                     number = player["leagues"]["standard"]["jersey"]
                     active = player["leagues"]["standard"]["active"]
                     position = player["leagues"]["standard"]["pos"]
-                    nba_player.append(f_name)
-                    nba_player.append(l_name)
-                    nba_player.append(team_name)
-                    nba_player.append(years)
-                    nba_player.append(college)
-                    nba_player.append(country)
-                    nba_player.append(b_date)
-                    nba_player.append(debut)
-                    nba_player.append(height)
-                    nba_player.append(weight)
-                    nba_player.append(number)
-                    nba_player.append(active)
-                    nba_player.append(position)
+                nba_player.append(f_name)
+                nba_player.append(l_name)
+                nba_player.append(team_name)
+                nba_player.append(years)
+                nba_player.append(college)
+                nba_player.append(country)
+                nba_player.append(b_date)
+                nba_player.append(height)
+                nba_player.append(weight)
+                nba_player.append(number)
+                nba_player.append(active)
+                nba_player.append(position)
+                if nba_player[-2] == "1":
                     nba_players_list.append(nba_player)
-                return nba_players_list
+            return nba_players_list
 
     def players_insertion(self, nba_players_list):
         """ Insert players in the DB """
         for player_list in nba_players_list:
-            game_date = game_list[0]
-            game_hour = game_list[1]
-            game_vteam = game_list[2]
-            game_hteam = game_list[3]
-            game_type = "season"
-            insertion_datas = Schedule(date=game_date, hour=game_hour, vteam=game_vteam, hteam=game_hteam,
-                                       game_type=game_type)
+            insertion_datas = Player(firstname=player_list[0], lastname=player_list[1], team=player_list[2], years=player_list[3],
+                                     college=player_list[4], country=player_list[5], birthdate=player_list[6], height=player_list[7],
+                                     weight=player_list[8], number=player_list[9], active=player_list[10], position=player_list[11],)
             insertion_datas.save()
+
