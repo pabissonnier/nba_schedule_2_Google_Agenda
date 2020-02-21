@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40d80ad6-1bb0-4601-be82-ef46da072686" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/users/management/commands/datas_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/management/commands/datas_manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/users/favs.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,19 +37,20 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/users" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/users" />
+      <recent name="C:\Users\pabis\OneDrive\Desktop\OC\Projets\nba_schedule\templates\mainapp" />
+      <recent name="C:\Users\pabis\OneDrive\Desktop\OC\Projets\nba_schedule\mainapp\static\mainapp" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/users/management" />
       <recent name="C:\Users\pabis\OneDrive\Desktop\OC\Projets\nba_schedule\mainapp\static\mainapp\js" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\pabis\OneDrive\Desktop\OC\Projets\nba_schedule\templates\mainapp" />
-      <recent name="C:\Users\pabis\OneDrive\Desktop\OC\Projets\nba_schedule\mainapp\static\mainapp" />
     </key>
   </component>
   <component name="RunManager" selected="Python.datas_manager (1)">
@@ -226,7 +228,7 @@
       <workItem from="1582197960960" duration="1641000" />
       <workItem from="1582199832809" duration="6339000" />
       <workItem from="1582210717767" duration="3943000" />
-      <workItem from="1582299356429" duration="3573000" />
+      <workItem from="1582299356429" duration="3679000" />
     </task>
     <servers />
   </component>
