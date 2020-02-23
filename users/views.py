@@ -30,10 +30,11 @@ def show_favs(request):
 @login_required()
 def teams_detail(request, team_name):
     team = get_object_or_404(Team, name=team_name)
+
     context = {
         'title': team.name,
         'picture': team.picture,
         'conference': team.conference,
-        'division': team.division
+        'division': team.division,
     }
     return render(request, 'users/detail.html', context)

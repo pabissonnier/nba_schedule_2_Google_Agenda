@@ -31,12 +31,12 @@ class DatasManager:
         nba_teams_list = []
         for team in json_loads["api"]["teams"]:
             nba_team = []
+            id = team["teamId"]
             name = team["fullName"]
             logo = team["logo"]
             conference = team["leagues"]["standard"]["confName"]
             division = team["leagues"]["standard"]["divName"]
-            url = name.replace(' ', '-').lower
-            nba_team.append(url)
+            nba_team.append(id)
             nba_team.append(name)
             nba_team.append(logo)
             nba_team.append(conference)
@@ -54,7 +54,8 @@ class DatasManager:
             team_pic = team_list[2]
             team_conf = team_list[3]
             team_div = team_list[4]
-            insertion_datas = Team(team_id=team_id, name=team_name, picture=team_pic, conference=team_conf, division=team_div)
+            team_url = team_name.replace(' ', '-')
+            insertion_datas = Team(team_id=team_id, name=team_name, url=team_url, picture=team_pic, conference=team_conf, division=team_div)
             insertion_datas.save()
 
 

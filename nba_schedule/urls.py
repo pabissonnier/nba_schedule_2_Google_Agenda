@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^profile/', user_views.profile, name='profile'),
     #url(r'^favorite_product/$', user_views.favs, name='favorite_product'),
     url(r'^favs/', user_views.show_favs, name='show_favs'),
-    url(r'^(?P<team_name>[0-9]+)/$', user_views.teams_detail, name='detail'),
+    url(r'^<team_name>', user_views.teams_detail, name='detail'),
     #url(r'^contact/', user_views.contact, name='contact'),
     #url(r'^legalmentions/', user_views.mentions, name='mentions'),
 ]

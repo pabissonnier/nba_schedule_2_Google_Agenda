@@ -3,8 +3,10 @@ from django.contrib.auth.models import User
 
 
 class Team(models.Model):
-    name = models.CharField(max_length=100)
-    picture = models.CharField(max_length=250)
+    team_id = models.CharField(max_length=50, default='')
+    name = models.CharField(max_length=100, default='')
+    url= models.CharField(max_length=100, default='')
+    picture = models.CharField(max_length=250, default='')
     conference = models.CharField(max_length=100, default='')
     division = models.CharField(max_length=100, default='')
     favorite = models.ManyToManyField(User, related_name='favorite', blank=True)
