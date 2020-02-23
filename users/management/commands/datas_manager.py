@@ -36,8 +36,10 @@ class DatasManager:
             logo = team["logo"]
             conference = team["leagues"]["standard"]["confName"]
             division = team["leagues"]["standard"]["divName"]
+            url = name.replace(' ', '-')
             nba_team.append(id)
             nba_team.append(name)
+            nba_team.append(url)
             nba_team.append(logo)
             nba_team.append(conference)
             nba_team.append(division)
@@ -54,8 +56,7 @@ class DatasManager:
             team_pic = team_list[2]
             team_conf = team_list[3]
             team_div = team_list[4]
-            team_url = team_name.replace(' ', '-')
-            insertion_datas = Team(team_id=team_id, name=team_name, url=team_url, picture=team_pic, conference=team_conf, division=team_div)
+            insertion_datas = Team(team_id=team_id, name=team_name, picture=team_pic, conference=team_conf, division=team_div)
             insertion_datas.save()
 
 
@@ -122,4 +123,3 @@ class DatasManager:
                                      college=player_list[4], country=player_list[5], birthdate=player_list[6], height=player_list[7],
                                      weight=player_list[8], number=player_list[9], active=player_list[10], position=player_list[11],)
             insertion_datas.save()
-
