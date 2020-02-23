@@ -28,8 +28,8 @@ def show_favs(request):
     return render(request, 'users/favs.html', context)
 
 @login_required()
-def teams_detail(request, team_name):
-    team = get_object_or_404(Team, name=team_name)
+def teams_detail(request, team_id):
+    team = get_object_or_404(Team, team_id=team_id)
 
     context = {
         'title': team.name,

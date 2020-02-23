@@ -11,6 +11,7 @@ import os.path
 
 def calendar_connection():
     SCOPES = "https://www.googleapis.com/auth/calendar"
+
     """store = file.Storage('mainapp/token.json')
     creds = store.get()
     if not creds or creds.invalid:

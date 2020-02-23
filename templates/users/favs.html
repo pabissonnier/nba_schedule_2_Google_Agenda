@@ -52,14 +52,6 @@
         </div>
     </div>
   </nav>
-
-{% if messages %}
-        {% for message in messages %}
-              <div class="alert alert-success">
-                <div class="alert alert-{{ message.tags }}">{{  message }}</div>
-              </div>
-        {% endfor %}
-    {% endif %}
   <div class="content-section-profile">
     <div class="row justify-content-md-center">
         <div class="col-md-12 text-center">
@@ -73,7 +65,7 @@
             <div class="profile-bloc">
                 <div class="favs-bloc">
                     {% for team in teams_list %}
-                        <h4><a href="{% url 'detail' team_name=team.url %}">{{ team.name }}</a></h4>
+                        <h4><a href="{% url 'detail' team_id=team.team_id %}">{{ team.name }}</a></h4>
                     {%  endfor %}
                 </div>
             </div>
