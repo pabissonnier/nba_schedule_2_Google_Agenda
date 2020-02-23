@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 
 
 class Team(models.Model):
-    url = models.CharField(max_length=100, default='')
     name = models.CharField(max_length=100)
     picture = models.CharField(max_length=250)
     conference = models.CharField(max_length=100, default='')

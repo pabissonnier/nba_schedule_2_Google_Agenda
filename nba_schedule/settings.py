@@ -25,7 +25,7 @@ SECRET_KEY = 'vle56+d*(^hz*!34-2a^f)n@q58^0))b*olktb4q#9h6vp4p!6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -88,7 +88,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'nba_schedule',
-        'USER': 'pabissonnier',
+        'USER': 'postgres',
         'PASSWORD': '458127',
         'HOST': 'localhost',
         'PORT': '5432',
