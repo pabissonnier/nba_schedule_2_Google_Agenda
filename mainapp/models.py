@@ -32,7 +32,7 @@ class Schedule(models.Model):
         gameh = game.hour #string
         game_day = game.date
         gameh_dt = datetime.strptime(gameh, '%H:%M')
-        gameh_end = datetime.strftime(gameh_dt + timedelta(hours=3), '%H:%M')
+        gameh_end = datetime.strftime(gameh_dt + timedelta(hours=1), '%H:%M')
         gameh_end_dt = datetime.strptime(gameh_end, '%H:%M')
         if gameh_end_dt < gameh_dt:
             gamed = datetime.strptime(game_day, '%Y-%m-%d') + timedelta(days=1)

@@ -52,9 +52,12 @@ def calendar_insertion(service):
 
 
 def event_insertion(service, calendar_id, event):
-    calendar_list_entry = service.calendarList().get(calendarId=calendar_id).execute()
-    if calendar_list_entry['accessRole']:
-        event = service.events().insert(calendarId=calendar_id, body=event).execute()
+    page_token = None
+    events = service.events().list(calendarId=calendar_id, pageToken=page_token).execute()
+    if event in events["items"]:
+        pass
+    else:
+        service.events().insert(calendarId=calendar_id, body=event).execute()
         print(f"The event has been created! View it at {event.get('htmlLink')}!")
 
 

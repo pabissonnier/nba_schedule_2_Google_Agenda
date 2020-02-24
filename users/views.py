@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 
-from .models import Team, Baller
+from .models import Team, Player
 
 
 @login_required()
@@ -30,7 +30,7 @@ def show_favs(request):
 @login_required()
 def teams_detail(request, team_id):
     team = get_object_or_404(Team, team_id=team_id)
-    players_list = Baller.objects.filter(team=team.name).order_by('lastname')
+    players_list = Player.objects.filter(team=team.name).order_by('lastname')
 
     context = {
         'title': team.name,
@@ -38,5 +38,18 @@ def teams_detail(request, team_id):
         'conference': team.conference,
         'division': team.division,
         'players': players_list
+    }
+    return render(request, 'users/detail.html', context)
+
+@login_required()
+def player_detail(request, player_id):
+    player = get_object_or_404(Player, player_id=player_id)
+    # Get nba player bio on wikipedia
+
+    context = {
+        'title': player.name,
+        'picture': player.picture,
+        'conference': player.conference,
+        'division': player.division
     }
     return render(request, 'users/detail.html', context)

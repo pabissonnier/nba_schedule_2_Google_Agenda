@@ -6,7 +6,7 @@ import wikipedia
 import requests
 
 from users.models import Team
-from users.models import Baller
+from users.models import Player
 
 
 class DatasManager:
@@ -57,7 +57,9 @@ class DatasManager:
             team_conf = team_list[3]
             team_div = team_list[4]
             insertion_datas = Team(team_id=team_id, name=team_name, picture=team_pic, conference=team_conf, division=team_div)
-            insertion_datas.save()
+            data_already = Team.objects.filter(team_id=team_id)
+            if not data_already:
+                insertion_datas.save()
 
 
 # PLAYERS EXTRACTION
@@ -87,7 +89,6 @@ class DatasManager:
             json_loads = json.loads(requests.request("GET", url, headers=headers).text)
 
             for player in json_loads["api"]["players"]:
-                nba_player = []
                 f_name = player["firstName"]
                 l_name = player["lastName"]
                 years = player["yearsPro"]
@@ -100,13 +101,15 @@ class DatasManager:
                     number = player["leagues"]["standard"]["jersey"]
                     active = player["leagues"]["standard"]["active"]
                     position = player["leagues"]["standard"]["pos"]
-            insertion_datas = Baller(firstname=f_name, lastname=l_name, team=team_name,
+            insertion_datas = Player(firstname=f_name, lastname=l_name, team=team_name,
                                      years=years,
                                      college=college, country=country, birthdate=b_date,
                                      height=height,
                                      weight=weight, number=number, active=active,
                                      position=position, )
-            insertion_datas.save()
+            data_already = Team.objects.filter(team_id=team_id)
+            if not data_already:
+                insertion_datas.save()
 
             """nba_player.append(f_name)
             nba_player.append(l_name)
