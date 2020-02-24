@@ -19,21 +19,21 @@ def upload_page(request):
     for team in teams_list:
         team_to_insert = get_object_or_404(Team, name=team)
         team_to_insert.favorite.add(request.user)
-    #service = calendar_connection()
-    """calendar_id = calendar_insertion(service)
+    service = calendar_connection()
+    calendar_id = calendar_insertion(service)
     for schedule in schedule_list:
         for game in schedule:
             game_dict = Schedule.extraction_to_gformat(schedule, game, teams_list)
             games_list.append(game_dict)
             for game in games_list:
-                event_insertion(service, calendar_id, game)"""
+                event_insertion(service, calendar_id, game)
 
     context = {
         'teams': teams_list,
         'schedule': schedule_list,
         'games': games_list,
-        #"service": service,
-        #'calendar_id': calendar_id,
+        "service": service,
+        'calendar_id': calendar_id,
     }
     return render(request, 'mainapp/upload.html', context)
 

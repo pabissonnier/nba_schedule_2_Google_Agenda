@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 
-from .models import Team, Player
+from .models import Team, Baller
 
 
 @login_required()
@@ -30,7 +30,7 @@ def show_favs(request):
 @login_required()
 def teams_detail(request, team_id):
     team = get_object_or_404(Team, team_id=team_id)
-    players_list = Player.objects.filter(team=team.name).order_by('lastname')
+    players_list = Baller.objects.filter(team=team.name).order_by('lastname')
 
     context = {
         'title': team.name,

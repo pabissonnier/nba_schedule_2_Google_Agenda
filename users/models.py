@@ -4,21 +4,21 @@ from django.contrib.auth.models import User
 
 class Team(models.Model):
     team_id = models.CharField(max_length=50, default='')
-    name = models.CharField(max_length=100, default='')
-    url= models.CharField(max_length=100, default='')
+    name = models.CharField(max_length=250, default='')
+    url = models.CharField(max_length=250, default='')
     picture = models.CharField(max_length=250, default='')
-    conference = models.CharField(max_length=100, default='')
-    division = models.CharField(max_length=100, default='')
+    conference = models.CharField(max_length=250, default='')
+    division = models.CharField(max_length=250, default='')
     favorite = models.ManyToManyField(User, related_name='favorite', blank=True)
 
     def __str__(self):
         return self.name
 
 
-class Player(models.Model):
+class Baller(models.Model):
     firstname = models.CharField(max_length=100, default='')
     lastname = models.CharField(max_length=100, default='')
-    team = models.CharField(max_length=100, default='', primary_key=True)
+    team = models.CharField(max_length=100, default='')
     years = models.CharField(max_length=100, default='')
     college = models.CharField(max_length=100, default='')
     country = models.CharField(max_length=100, default='')
