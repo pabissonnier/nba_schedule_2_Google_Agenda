@@ -24,7 +24,7 @@ class Schedule(models.Model):
             games_list.append(team_db_v)
         return games_list
 
-    def extraction_to_gformat(self, game, teams_chosen):
+    def extraction_to_gformat(self, game):
         global summary
         event = {}
         hteam = game.hteam
