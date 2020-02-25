@@ -31,7 +31,7 @@ def show_favs(request):
 @login_required()
 def teams_detail(request, team_id):
     team = get_object_or_404(Team, team_id=team_id)
-    players_list = Player.objects.filter(team=team.name).order_by('lastname')
+    players_list = Player.objects.filter(squad=team.name).order_by('lastname')
 
     context = {
         'title': team.name,

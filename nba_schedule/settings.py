@@ -87,7 +87,7 @@ WSGI_APPLICATION = 'nba_schedule.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nba_schedule',
+        'NAME': 'ns_to_gc',
         'USER': 'pabissonnier',
         'PASSWORD': '458127',
         'HOST': 'localhost',

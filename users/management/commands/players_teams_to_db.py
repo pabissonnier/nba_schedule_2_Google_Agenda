@@ -15,7 +15,7 @@ class Command(BaseCommand):
         DatasManager.team_insertion(datas, teams_extraction)
 
         # Players insertion
-        """"teams_names = DatasManager.get_teams_names(datas, teams_extraction)
-        DatasManager.get_nba_players(datas, teams_names)"""
+        teams_names = DatasManager.get_teams_names(datas, teams_extraction)
+        DatasManager.get_nba_players(datas, teams_names)
         #DatasManager.players_insertion(datas, players_list)
 

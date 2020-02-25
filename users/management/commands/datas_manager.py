@@ -101,15 +101,13 @@ class DatasManager:
                     number = player["leagues"]["standard"]["jersey"]
                     active = player["leagues"]["standard"]["active"]
                     position = player["leagues"]["standard"]["pos"]
-            insertion_datas = Player(firstname=f_name, lastname=l_name, team=team_name,
-                                     years=years,
-                                     college=college, country=country, birthdate=b_date,
-                                     height=height,
-                                     weight=weight, number=number, active=active,
-                                     position=position, )
-            data_already = Team.objects.filter(team_id=team_id)
-            if not data_already:
-                insertion_datas.save()
+                    insertion_datas = Player(firstname=f_name, lastname=l_name, team=team_name,
+                                             years=years,
+                                             college=college, country=country, birthdate=b_date,
+                                             height=height,
+                                             weight=weight, number=number, active=active,
+                                             position=position, )
+                    insertion_datas.save()
 
             """nba_player.append(f_name)
             nba_player.append(l_name)
