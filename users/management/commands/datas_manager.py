@@ -36,10 +36,8 @@ class DatasManager:
             logo = team["logo"]
             conference = team["leagues"]["standard"]["confName"]
             division = team["leagues"]["standard"]["divName"]
-            url = name.replace(' ', '-')
             nba_team.append(id)
             nba_team.append(name)
-            nba_team.append(url)
             nba_team.append(logo)
             nba_team.append(conference)
             nba_team.append(division)
