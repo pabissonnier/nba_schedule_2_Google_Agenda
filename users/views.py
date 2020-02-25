@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
+import wikipedia
 
 from .models import Team, Player
 
@@ -44,12 +45,15 @@ def teams_detail(request, team_id):
 @login_required()
 def player_detail(request, player_id):
     player = get_object_or_404(Player, player_id=player_id)
-    # Get nba player bio on wikipedia
+    player_name = player.firstname + ' ' + player.lastname
+    player_page = wikipedia.page(player_name)
+    if player_page:
+        player_bio = wikipedia.summary(player_name, sentences=1)
 
-    context = {
-        'title': player.name,
-        'picture': player.picture,
-        'conference': player.conference,
-        'division': player.division
-    }
-    return render(request, 'users/detail.html', context)
+        context = {
+            'title': player_name,
+            'bio': player_bio,
+        }
+        return render(request, 'users/player_detail.html', context)
+    else:
+        pass
