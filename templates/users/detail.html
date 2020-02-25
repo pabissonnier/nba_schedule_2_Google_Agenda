@@ -69,7 +69,7 @@
                     <h5>Division: {{ division }}</h5>
                     <h5>Roster: </h5>
                     {% for player in players %}
-                        <div><h6>{{ player.firstname }} {{ player.lastname }}</h6><p>{{ player.position }}  {{ player.height }}  {{ player.weight }}</p></div>
+                        <h6><a href="{% url 'player-detail' player_id=player.id %}">{{ player.firstname }} {{ player.lastname }}</a></h6><p>{{ player.position }}  {{ player.height }}  {{ player.weight }}</p>
                     {%  endfor %}
                 </div>
             </div>

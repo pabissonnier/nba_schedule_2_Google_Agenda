@@ -44,15 +44,22 @@ def teams_detail(request, team_id):
 
 @login_required()
 def player_detail(request, player_id):
-    player = get_object_or_404(Player, player_id=player_id)
+    player = get_object_or_404(Player, id=player_id)
     player_name = player.firstname + ' ' + player.lastname
     player_page = wikipedia.page(player_name)
     if player_page:
-        player_bio = wikipedia.summary(player_name, sentences=1)
+        player_bio = wikipedia.summary(player_name, sentences=3)
+        player_picture = wikipedia.page(player_name).images
 
         context = {
             'title': player_name,
             'bio': player_bio,
+            'number': player.number,
+            'height': player.height,
+            'weight': player.weight,
+            'position': player.position,
+            'college': player.college,
+            'debut': player.debut
         }
         return render(request, 'users/player_detail.html', context)
     else:

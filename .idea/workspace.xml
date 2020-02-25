@@ -3,9 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="40d80ad6-1bb0-4601-be82-ef46da072686" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainapp/token.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/token.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nba_schedule/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/nba_schedule/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/users/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/users/management/commands/datas_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/management/commands/datas_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/users/player_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/users/player_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -238,7 +238,7 @@
       <workItem from="1582545752887" duration="3765000" />
       <workItem from="1582550381675" duration="2012000" />
       <workItem from="1582553435581" duration="2361000" />
-      <workItem from="1582556089493" duration="8731000" />
+      <workItem from="1582556089493" duration="10278000" />
     </task>
     <servers />
   </component>

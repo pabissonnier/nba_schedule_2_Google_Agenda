@@ -55,7 +55,7 @@
   <div class="content-section-profile">
     <div class="row justify-content-md-center">
         <div class="col-md-12 text-center">
-          <h2>{{ title }}</h2>
+          <h2>{{ title }}</h2><h3> #{{ number }}</h3>
           <hr class="divider my-4">
         </div>
       </div>
@@ -64,10 +64,13 @@
         <div class="col-md-8">
             <div class="profile-bloc">
                 <div class="favs-bloc">
-                    <img class="img-thumbnail" src="{{ picture }}" alt="{{ title }}"><p>
-                    <h5>Conference: {{ conference }}</h5>
-                    <h5>Division: {{ division }}</h5>
-                    <h5>Roster: {{ players }}</h5>
+                    <h5>College:</h5><h6>{{ college }}</h6>
+                    <h5>NBA debut:</h5><h6> {{ debut }}</h6>
+                    <h5>Height:</h5><h6> {{ height }} m</h6>
+                    <h5>Weight:</h5><h6> {{ weight }} Kg</h6>
+                    <h5>Position:</h5><h6> {{ position }}</h6>
+                    <h5>Bio: </h5>
+                    <p>{{ bio }}</p>
                 </div>
             </div>
         </div>
