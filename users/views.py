@@ -49,7 +49,6 @@ def player_detail(request, player_id):
     player_page = wikipedia.page(player_name)
     if player_page:
         player_bio = wikipedia.summary(player_name, sentences=3)
-        player_picture = wikipedia.page(player_name).images
 
         context = {
             'title': player_name,
