@@ -4,7 +4,8 @@ from django.shortcuts import get_object_or_404
 
 from .models import Schedule
 from users.models import Team
-from .calendar_insertion import calendar_connection, calendar_insertion, event_insertion
+from .calendar_insertion import calendar_connection, calendar_insertion, event_insertion, \
+    check_calendar_exist, get_calendar_id
 
 
 def index(request):
@@ -14,9 +15,14 @@ def index(request):
 def upload_page(request):
     schedule = Schedule()
     service = calendar_connection()
-    calendar_id = calendar_insertion(service)
+    has_agenda = check_calendar_exist(service)
     teams_list = request.GET.getlist('team')
-    for team in teams_list:#works fine
+    if not has_agenda:
+        calendar_id = calendar_insertion(service)
+
+    else:
+        calendar_id = get_calendar_id(service)
+    for team in teams_list:
         team_to_insert = get_object_or_404(Team, name=team)
         team_to_insert.favorite.add(request.user)
 
@@ -36,5 +42,7 @@ def upload_page(request):
         "service": service,
     }
     return render(request, 'mainapp/upload.html', context)
+
+
 
 

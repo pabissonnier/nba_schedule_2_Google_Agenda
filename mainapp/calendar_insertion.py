@@ -39,16 +39,39 @@ def calendar_connection():
     return service
 
 
+def check_calendar_exist(service):
+    calendar = {
+        'summary': 'Your NBA team(s) Schedule',
+        'timeZone': 'America/New_York'
+    }
+    calendar_list = service.calendarList().list().execute()
+    for calendar_list_entry in calendar_list['items']:
+        if calendar_list_entry['summary'] == calendar['summary']:
+            return True
+        else:
+            return False
+
+
 def calendar_insertion(service):
     calendar = {
         'summary': 'Your NBA team(s) Schedule',
         'timeZone': 'America/New_York'
     }
 
-    created_calendar = service.calendars().insert(body=calendar).execute()
+    nba_calendar = service.calendars().get(body=calendar).execute()
 
-    calendar_id = created_calendar['id']
+    calendar_id = nba_calendar['id']
     return calendar_id
+
+def get_calendar_id(service):
+    calendar = {
+        'summary': 'Your NBA team(s) Schedule',
+        'timeZone': 'America/New_York'
+    }
+    calendar_list = service.calendarList().list().execute()
+    for calendar_list_entry in calendar_list['items']:
+        if calendar_list_entry['summary'] == calendar['summary']:
+            return calendar_list_entry['id']
 
 
 def event_insertion(service, calendar_id, event):
