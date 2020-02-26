@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
+from .team_datas import TeamInfos
 import wikipedia
 
 from .models import Team, Player
@@ -32,13 +33,17 @@ def show_favs(request):
 def teams_detail(request, team_id):
     team = get_object_or_404(Team, team_id=team_id)
     players_list = Player.objects.filter(team=team.name).order_by('lastname')
+    team_info = TeamInfos()
+    team_api_conn = TeamInfos.team_api_connexion(team_info, team_id)
+    last_games = TeamInfos.get_infos_from_json(team_info, team_api_conn)
 
     context = {
         'title': team.name,
         'picture': team.picture,
         'conference': team.conference,
         'division': team.division,
-        'players': players_list
+        'players': players_list,
+        'last_games': last_games
     }
     return render(request, 'users/detail.html', context)
 

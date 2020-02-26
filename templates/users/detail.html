@@ -67,6 +67,7 @@
                     <img class="img-thumbnail" src="{{ picture }}" alt="{{ title }}"><p>
                     <h5>Conference: {{ conference }}</h5>
                     <h5>Division: {{ division }}</h5>
+                    <h5>Last 5 games: {{ last_games }}</h5>
                     <h5>Roster: </h5>
                     {% for player in players %}
                         <h6><a href="{% url 'player-detail' player_id=player.id %}">{{ player.firstname }} {{ player.lastname }}</a></h6><p>{{ player.position }}  {{ player.height }}  {{ player.weight }}</p>

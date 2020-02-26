@@ -39,5 +39,5 @@ class TeamInfos:
                 nba_game_list.append(game_list)
             else:
                 pass
-        return nba_game_list[5:]
+        return nba_game_list[-5:]
 
