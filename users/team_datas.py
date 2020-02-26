@@ -35,5 +35,9 @@ class TeamInfos:
             game_list.append(hteam_score)
             game_list.append(vteam)
             game_list.append(vteam_score)
-            nba_game_list.append(game_list)
-        return nba_game_list
+            if hteam_score != "" and vteam_score != "":
+                nba_game_list.append(game_list)
+            else:
+                pass
+        return nba_game_list[5:]
+
