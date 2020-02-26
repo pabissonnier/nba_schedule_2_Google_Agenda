@@ -4,7 +4,8 @@ from django.shortcuts import get_object_or_404
 
 from .models import Schedule
 from users.models import Team
-from .calendar_insertion import calendar_connection, calendar_insertion, event_insertion
+from .calendar_insertion import calendar_connection, calendar_insertion, event_insertion, \
+    check_calendar_exist, get_calendar_id, check_event_exist
 
 
 def index(request):
@@ -13,28 +14,40 @@ def index(request):
 
 def upload_page(request):
     schedule = Schedule()
+    service = calendar_connection()
+    has_agenda = check_calendar_exist(service)
     teams_list = request.GET.getlist('team')
-    schedule_list = Schedule.get_teams_agenda(schedule, teams_list)
-    games_list = []
+    if not has_agenda:
+        calendar_id = calendar_insertion(service)
+
+    else:
+        calendar_id = get_calendar_id(service)
     for team in teams_list:
         team_to_insert = get_object_or_404(Team, name=team)
         team_to_insert.favorite.add(request.user)
-    #service = calendar_connection()
-    """calendar_id = calendar_insertion(service)
-    for schedule in schedule_list:
-        for game in schedule:
-            game_dict = Schedule.extraction_to_gformat(schedule, game, teams_list)
+
+    schedule_list = Schedule.get_teams_agenda(schedule, teams_list)
+    games_list = []
+
+    for schedule_detail in schedule_list:
+        for game in schedule_detail:
+            game_dict = Schedule.extraction_to_gformat(schedule, game)
             games_list.append(game_dict)
-            for game in games_list:
-                event_insertion(service, calendar_id, game)"""
+            for event in games_list:
+                event_start = event['start']['dateTime']
+                event_summary = event['summary']
+                if not check_event_exist(service, calendar_id, event_summary, event_start):
+                    event_insertion(service, calendar_id, event)
+                else:
+                    pass
 
     context = {
-        'teams': teams_list,
-        'schedule': schedule_list,
+        'teams': len(teams_list),
         'games': games_list,
-        #"service": service,
-        #'calendar_id': calendar_id,
+        "service": service,
     }
     return render(request, 'mainapp/upload.html', context)
+
+
 
 

@@ -31,6 +31,7 @@ urlpatterns = [
     #url(r'^favorite_product/$', user_views.favs, name='favorite_product'),
     url(r'^favs/', user_views.show_favs, name='show_favs'),
     url(r'^(?P<team_id>[0-9]+)/$', user_views.teams_detail, name='detail'),
+    url(r'^players/(?P<player_id>[0-9]+)/$', user_views.player_detail, name='player-detail'),
     #url(r'^contact/', user_views.contact, name='contact'),
     #url(r'^legalmentions/', user_views.mentions, name='mentions'),
 ]

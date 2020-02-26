@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/users/management/commands/datas_manager.py" line="89" mnemonic="6" />
-  </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="40d80ad6-1bb0-4601-be82-ef46da072686" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+=======
+    <list default="true" id="40d80ad6-1bb0-4601-be82-ef46da072686" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/calendar_insertion.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/calendar_insertion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainapp/views.py" afterDir="false" />
+    </list>
+>>>>>>> dab8dfea5b6e713148c57a334c4dd2d845e8712e
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +20,7 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
+<<<<<<< HEAD
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
@@ -118,6 +124,8 @@
       </file>
     </leaf>
   </component>
+=======
+>>>>>>> dab8dfea5b6e713148c57a334c4dd2d845e8712e
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -130,32 +138,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/nba_schedule/settings.py" />
-        <option value="$PROJECT_DIR$/users/models.py" />
-        <option value="$PROJECT_DIR$/mainapp/calendar_insertion.py" />
-        <option value="$PROJECT_DIR$/templates/users/profile.html" />
-        <option value="$PROJECT_DIR$/mainapp/views.py" />
-        <option value="$PROJECT_DIR$/templates/mainapp/upload.html" />
-        <option value="$PROJECT_DIR$/nba_schedule/urls.py" />
-        <option value="$PROJECT_DIR$/templates/users/favs.html" />
-        <option value="$PROJECT_DIR$/templates/users/detail.html" />
-        <option value="$PROJECT_DIR$/users/views.py" />
-        <option value="$PROJECT_DIR$/users/management/commands/players_teams_to_db.py" />
-        <option value="$PROJECT_DIR$/users/management/commands/datas_manager.py" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1374" />
-    <option name="y" value="221" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
-  </component>
   <component name="ProjectId" id="1Y1K5pUubCw3R2MspCLDQ3TV00R" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+<<<<<<< HEAD
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -239,6 +224,8 @@
       </pane>
     </panes>
   </component>
+=======
+>>>>>>> dab8dfea5b6e713148c57a334c4dd2d845e8712e
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -255,29 +242,17 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/users" />
+      <recent name="C:\Users\pabis\OneDrive\Desktop\OC\Projets\nba_schedule_2_Google_Agenda\templates\users" />
+      <recent name="$PROJECT_DIR$/users/management/commands" />
+      <recent name="C:\Users\pabis\OneDrive\Desktop\OC\Projets\nba_schedule\templates\mainapp" />
+      <recent name="C:\Users\pabis\OneDrive\Desktop\OC\Projets\nba_schedule\mainapp\static\mainapp" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/users/management" />
       <recent name="C:\Users\pabis\OneDrive\Desktop\OC\Projets\nba_schedule\mainapp\static\mainapp\js" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\pabis\OneDrive\Desktop\OC\Projets\nba_schedule_2_Google_Agenda\templates\users" />
-      <recent name="$PROJECT_DIR$/users/management/commands" />
-      <recent name="$PROJECT_DIR$/templates/users" />
-      <recent name="C:\Users\pabis\OneDrive\Desktop\OC\Projets\nba_schedule\templates\mainapp" />
-      <recent name="C:\Users\pabis\OneDrive\Desktop\OC\Projets\nba_schedule\mainapp\static\mainapp" />
-    </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Python.datas_manager (1)">
     <configuration name="datas_manager (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -456,6 +431,7 @@
       <workItem from="1582210717767" duration="3943000" />
       <workItem from="1582299356429" duration="3950000" />
       <workItem from="1582463906721" duration="9349000" />
+<<<<<<< HEAD
       <workItem from="1582583783233" duration="25000" />
     </task>
     <servers />
@@ -490,6 +466,16 @@
       <window_info anchor="right" id="Database" order="4" />
     </layout>
   </component>
+=======
+      <workItem from="1582545752887" duration="3765000" />
+      <workItem from="1582550381675" duration="2012000" />
+      <workItem from="1582553435581" duration="2361000" />
+      <workItem from="1582556089493" duration="10278000" />
+      <workItem from="1582706804316" duration="6818000" />
+    </task>
+    <servers />
+  </component>
+>>>>>>> dab8dfea5b6e713148c57a334c4dd2d845e8712e
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
@@ -498,10 +484,10 @@
       <screen x="67" y="27" width="1411" height="871" />
     </state>
     <state x="458" y="264" width="614" height="390" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1411.871@67.27.1411.871" timestamp="1582192037280" />
-    <state x="503" y="208" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582192289434">
+    <state x="503" y="208" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582621140976">
       <screen x="67" y="27" width="1411" height="871" />
     </state>
-    <state x="503" y="208" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1411.871@67.27.1411.871" timestamp="1582192289434" />
+    <state x="503" y="208" width="524" height="502" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/67.27.1411.871@67.27.1411.871" timestamp="1582621140976" />
     <state x="550" y="220" width="424" height="484" key="FileChooserDialogImpl" timestamp="1582301019045">
       <screen x="67" y="27" width="1411" height="871" />
     </state>
@@ -522,10 +508,10 @@
       <screen x="67" y="27" width="1411" height="871" />
     </state>
     <state width="1345" height="206" key="GridCell.Tab.0.right/67.27.1411.871@67.27.1411.871" timestamp="1582199165089" />
-    <state x="261" y="97" key="SettingsEditor" timestamp="1582301040428">
+    <state x="261" y="97" key="SettingsEditor" timestamp="1582550757800">
       <screen x="67" y="27" width="1411" height="871" />
     </state>
-    <state x="261" y="97" key="SettingsEditor/67.27.1411.871@67.27.1411.871" timestamp="1582301040428" />
+    <state x="261" y="97" key="SettingsEditor/67.27.1411.871@67.27.1411.871" timestamp="1582550757800" />
     <state x="428" y="290" key="com.intellij.ide.util.TipDialog" timestamp="1582299358645">
       <screen x="67" y="27" width="1411" height="871" />
     </state>
@@ -534,25 +520,26 @@
       <screen x="67" y="27" width="1411" height="871" />
     </state>
     <state x="540" y="382" width="454" height="160" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/67.27.1411.871@67.27.1411.871" timestamp="1582125168343" />
-    <state x="486" y="31" width="704" height="867" key="find.popup" timestamp="1582124687408">
+    <state x="486" y="31" width="704" height="867" key="find.popup" timestamp="1582620809979">
       <screen x="67" y="27" width="1411" height="871" />
     </state>
-    <state x="486" y="31" width="704" height="867" key="find.popup/67.27.1411.871@67.27.1411.871" timestamp="1582124687408" />
+    <state x="486" y="31" width="704" height="867" key="find.popup/67.27.1411.871@67.27.1411.871" timestamp="1582620809979" />
     <state x="497" y="350" width="540" height="225" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1582300570976">
       <screen x="67" y="27" width="1411" height="871" />
     </state>
     <state x="497" y="350" width="540" height="225" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/67.27.1411.871@67.27.1411.871" timestamp="1582300570976" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/nba_schedule$test_calendar.coverage" NAME="test_calendar Coverage Results" MODIFIED="1581186861489" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mainapp" />
     <SUITE FILE_PATH="coverage/nba_schedule_2_Google_Agenda$datas_manager__1_.coverage" NAME="datas_manager (1) Coverage Results" MODIFIED="1582210273038" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/users/management/commands" />
-    <SUITE FILE_PATH="coverage/nba_schedule_2_Google_Agenda$script_test.coverage" NAME="script_test Coverage Results" MODIFIED="1582199162135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mainapp" />
-    <SUITE FILE_PATH="coverage/nba_schedule_2_Google_Agenda$datas_manager.coverage" NAME="datas_manager Coverage Results" MODIFIED="1582129060903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/users/migrations/commands" />
-    <SUITE FILE_PATH="coverage/nba_schedule_2_Google_Agenda$models.coverage" NAME="models Coverage Results" MODIFIED="1582123584694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mainapp" />
     <SUITE FILE_PATH="coverage/nba_schedule$calendar_insertion.coverage" NAME="calendar_insertion Coverage Results" MODIFIED="1581963606530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mainapp" />
+    <SUITE FILE_PATH="coverage/nba_schedule_2_Google_Agenda$script_test.coverage" NAME="script_test Coverage Results" MODIFIED="1582199162135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mainapp" />
     <SUITE FILE_PATH="coverage/nba_schedule$js_to_python.coverage" NAME="js_to_python Coverage Results" MODIFIED="1580057583764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mainapp" />
+    <SUITE FILE_PATH="coverage/nba_schedule_2_Google_Agenda$datas_manager.coverage" NAME="datas_manager Coverage Results" MODIFIED="1582129060903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/users/migrations/commands" />
+    <SUITE FILE_PATH="coverage/nba_schedule$test_calendar.coverage" NAME="test_calendar Coverage Results" MODIFIED="1581186861489" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mainapp" />
+    <SUITE FILE_PATH="coverage/nba_schedule_2_Google_Agenda$models.coverage" NAME="models Coverage Results" MODIFIED="1582123584694" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mainapp" />
     <SUITE FILE_PATH="coverage/nba_schedule_2_Google_Agenda$test.coverage" NAME="test Coverage Results" MODIFIED="1582123692008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/mainapp" />
   </component>
+<<<<<<< HEAD
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/mainapp/token.pickle">
       <provider selected="true" editor-type-id="text-editor" />
@@ -657,4 +644,6 @@
       </provider>
     </entry>
   </component>
+=======
+>>>>>>> dab8dfea5b6e713148c57a334c4dd2d845e8712e
 </project>

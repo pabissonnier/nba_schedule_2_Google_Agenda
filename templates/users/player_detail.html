@@ -44,7 +44,7 @@
                 <h1><a class="navbar-brand" href="/">NS to GC</a></h1>
             </div>
             <div class="col-lg-1 my-auto">
-                <a href="{% url 'profile' %}" id="account">{{ user.username }}</a>
+                <a href=href="{% url 'profile' %}" id="account">{{ user.username }}</a>
             </div>
             <div class="col-lg-1 my-auto">
                 <a href="{% url 'logout' %}" id="signout">Sign out</a>
@@ -55,7 +55,7 @@
   <div class="content-section-profile">
     <div class="row justify-content-md-center">
         <div class="col-md-12 text-center">
-          <h2>{{ title }}</h2>
+          <h2>{{ title }}</h2><h3> #{{ number }}</h3>
           <hr class="divider my-4">
         </div>
       </div>
@@ -64,17 +64,13 @@
         <div class="col-md-8">
             <div class="profile-bloc">
                 <div class="favs-bloc">
-                    <img class="img-thumbnail" src="{{ picture }}" alt="{{ title }}" width="200"><p>
-                    <h5>Conference:</h5> <h6>{{ conference }}</h6>
-                    <h5>Division:</h5><h6>{{ division }}</h6>
-                    <h5>Last 5 games:</h5>
-                    {%  for game in last_games %}
-                        <h6>{{ game }}</h6>
-                    {%  endfor %}
-                    <h5>Roster: </h5>
-                    {% for player in players %}
-                        <h6><a href="{% url 'player-detail' player_id=player.id %}">{{ player.firstname }} {{ player.lastname }}  {{ player.position }} </a></h6>
-                    {%  endfor %}
+                    <h5>College:</h5><h6>{{ college }}</h6>
+                    <h5>NBA debut:</h5><h6> {{ debut }}</h6>
+                    <h5>Height:</h5><h6> {{ height }} m</h6>
+                    <h5>Weight:</h5><h6> {{ weight }} Kg</h6>
+                    <h5>Position:</h5><h6> {{ position }}</h6>
+                    <h5>Bio: </h5>
+                    <p>{{ bio }}</p>
                 </div>
             </div>
         </div>
