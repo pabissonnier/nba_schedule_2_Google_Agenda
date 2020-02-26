@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+import requests
+import json
 
 
 class Team(models.Model):
@@ -13,6 +15,8 @@ class Team(models.Model):
 
     def __str__(self):
         return self.name
+
+
 
 
 class Player(models.Model):
