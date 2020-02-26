@@ -58,10 +58,11 @@ def calendar_insertion(service):
         'timeZone': 'America/New_York'
     }
 
-    nba_calendar = service.calendars().get(body=calendar).execute()
+    nba_calendar = service.calendarList().insert(body=calendar).execute()
 
     calendar_id = nba_calendar['id']
     return calendar_id
+
 
 def get_calendar_id(service):
     calendar = {
@@ -72,6 +73,15 @@ def get_calendar_id(service):
     for calendar_list_entry in calendar_list['items']:
         if calendar_list_entry['summary'] == calendar['summary']:
             return calendar_list_entry['id']
+
+
+def check_event_exist(service, calendar_id, event_start, event_summary):
+    event_list = service.events().list(calendarID=calendar_id).execute()
+    for event_list_entry in event_list['items']:
+        if event_list_entry['summary'] == event_summary and event_list_entry['start']['dateTime'] == event_start:
+            return True
+        else:
+            return False
 
 
 def event_insertion(service, calendar_id, event):
