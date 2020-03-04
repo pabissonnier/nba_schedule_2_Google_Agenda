@@ -39,12 +39,12 @@
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-            <div class="col-lg-10">
+            <div class="col-lg-9">
                 <h1><a class="navbar-brand" href="/">NS to GC</a></h1>
             </div>
             {% if user.is_authenticated %}
-            <div class="col-lg-1 my-auto">
-                <a href="{% url 'profile' %}" id="account">{{ user.username }}</a>
+            <div class="col-lg-2 my-auto">
+                <a href="{% url 'profile' %}" id="account">Welcome {{ user.username|title }} !</a>
             </div>
             <div class="col-lg-1 my-auto">
                 <a href="{% url 'logout' %}" id="signout">Sign out</a>
@@ -65,11 +65,11 @@
       <div class="col-xl-9 mx-auto">
         {% if user.is_authenticated %}
             <form action="/upload">
-                <button type="submit" class="btn btn-light btn-lg">Updload now</button>
+                <button type="submit" class="btn btn-info btn-lg">Upload now</button>
             </form>
         {%  else %}
             <form action="{%  provider_login_url "google" %}">
-                <button type="submit" class="btn btn-light btn-lg">Google connect</button>
+                <button type="submit" class="btn btn-info btn-lg">Google connect</button>
             </form>
         {% endif %}
       </div>

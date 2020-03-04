@@ -39,12 +39,12 @@
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-            <div class="col-lg-10">
+            <div class="col-lg-9">
                 <h1><a class="navbar-brand" href="/">NS to GC</a></h1>
             </div>
             {% if user.is_authenticated %}
-            <div class="col-lg-1 my-auto">
-                <a href="{% url 'profile' %}" id="account">{{ user.username }}</a>
+            <div class="col-lg-2 my-auto">
+                <a href="{% url 'profile' %}" id="account">Welcome {{ user.username|title }} !</a>
             </div>
             <div class="col-lg-1 my-auto">
                 <a href="{% url 'logout' %}" id="signout">Sign out</a>
