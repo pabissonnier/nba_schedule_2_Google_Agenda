@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 from .models import Schedule
 from users.models import Team
 from .calendar_insertion import calendar_connection, calendar_insertion, event_insertion, \
-    check_calendar_exist, get_calendar_id, check_event_exist
+    check_calendar_exist, get_calendar_id
 
 
 def index(request):
@@ -27,24 +27,32 @@ def upload_page(request):
         team_to_insert.favorite.add(request.user)
 
     schedule_list = Schedule.get_teams_agenda(schedule, teams_list)
-    games_list = []
+    #games_list = []
 
     for schedule_detail in schedule_list:
         for game in schedule_detail:
             game_dict = Schedule.extraction_to_gformat(schedule, game)
-            games_list.append(game_dict)
-            for event in games_list:
-                event_start = event['start']['dateTime']
-                event_summary = event['summary']
-                if not check_event_exist(service, calendar_id, event_summary, event_start):
-                    event_insertion(service, calendar_id, event)
+            event_summary = game_dict["summary"]
+            event_start = game_dict['start']['dateTime']
+            event_list = service.events().list(calendarId=calendar_id).execute()
+            for event_list_entry in event_list['items']:
+                if event_list_entry['summary'] == event_summary and event_list_entry['start']['dateTime'] == event_start:
+                    event_exist = True
+                else:
+                    event_exist = False
+                if not event_exist:
+                    event_insertion(service, calendar_id, game_dict)
                 else:
                     pass
+            #games_list.append(game_dict)
+            #for event in games_list:
+
+
 
     context = {
         'teams': len(teams_list),
-        'games': games_list,
         "service": service,
+        "schedule_list": schedule_list
     }
     return render(request, 'mainapp/upload.html', context)
 
