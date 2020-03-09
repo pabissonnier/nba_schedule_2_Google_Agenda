@@ -65,7 +65,7 @@
       <div class="row no-gutters justify-content-center">
           <div class="col-lg-10 order-lg-1 my-auto showcase-text">
             <h1>Pick the team(s) you want to follow</h1>
-              <form action="{% url 'upload' %}" method="get">
+              <form action="{% url 'upload' %}" method="get" id="team_form">
                   <div class="row">
                       <div class="col-lg-6">
                           <h2>Eastern conference</h2>
@@ -91,6 +91,12 @@
                                       </div>
                                   </div>
                               {%  endfor %}
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div>
+                              <input type="checkbox" id="teambox" name="team" onclick="allTeams(this)" />
+                              <label for="teambox"><img class="img-thumbnail" width="70" alt="nba" src="nba-logo" /></label>
                           </div>
                       </div>
                       <div class="container">
@@ -185,17 +191,24 @@
 
   <script>
     function checkedOrNot() {
-      // Get the checkbox
-      var teambox = document.getElementById("teambox");
       // Get the output text
       var text = document.getElementById("text");
 
       // If the checkbox is checked, display the output text
-      if (teambox.checked == false){
+      if (document.forms['team_form'].value ===""){
         text.style.display = "block";
       } else {
         text.style.display = "none";
       }
+    }
+    </script>
+
+    <script>
+    function allTeams(source) {
+        checkboxes = document.getElementsByName('team');
+        for(var i=0, n=checkboxes.length;i<n;i++) {
+        checkboxes[i].checked = source.checked;
+        }
     }
     </script>
 </body>

@@ -188,3 +188,7 @@ label img {
   /* box-shadow: 0 0 5px #333; */
   z-index: -1;
 }
+
+.content-section-profile {
+  padding-top: 30px;
+}

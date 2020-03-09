@@ -18,7 +18,6 @@ def upload_page(request):
 
     w_teams = Team.objects.filter(conference="West").order_by('name')
     e_teams = Team.objects.filter(conference="East").order_by('name')
-
     teams_list = request.GET.getlist('team')
 
     schedule = Schedule()
