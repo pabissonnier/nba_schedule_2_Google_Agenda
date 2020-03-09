@@ -63,15 +63,6 @@ def get_calendar_id(service):
             return calendar_list_entry['id']
 
 
-def check_event_exist(service, calendar_id, event_start, event_summary):
-    event_list = service.events().list(calendarId=calendar_id).execute()
-    for event_list_entry in event_list['items']:
-        if event_list_entry['summary'] == event_summary and event_list_entry['start']['dateTime'] == event_start:
-            return True
-        else:
-            return False
-
-
 def event_insertion(service, calendar_id, event):
     page_token = None
     events = service.events().list(calendarId=calendar_id, pageToken=page_token).execute()

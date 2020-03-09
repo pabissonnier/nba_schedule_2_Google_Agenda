@@ -15,22 +15,26 @@ def index(request):
 def upload_page(request):
     schedule = Schedule()
     service = calendar_connection()
+
     has_agenda = check_calendar_exist(service)
     teams_list = request.GET.getlist('team')
     if not has_agenda:
         calendar_id = calendar_insertion(service)
-
     else:
         calendar_id = get_calendar_id(service)
+
     for team in teams_list:
         team_to_insert = get_object_or_404(Team, name=team)
         team_to_insert.favorite.add(request.user)
 
     schedule_list = Schedule.get_teams_agenda(schedule, teams_list)
     for schedule_detail in schedule_list:
+        game_list = []
         for game in schedule_detail:
             game_dict = Schedule.extraction_to_gformat(schedule, game)
-            event_insertion(service, calendar_id, game_dict)
+            game_list.append(game_dict)
+        for event in game_list:
+            event_insertion(service, calendar_id, event)
 
     context = {
         'teams': len(teams_list),
