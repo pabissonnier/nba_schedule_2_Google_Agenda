@@ -12,13 +12,6 @@ def profile(request):
     return render(request, 'users/profile.html')
 
 
-""""@login_required()
-def favs(request):
-    team = get_object_or_404(Team, id=request.POST.get('fav-btn'))
-    team.favorite.add(request.user)
-    return redirect(request.META['HTTP_REFERER']"""
-
-
 @login_required()
 def show_favs(request):
     teams_list = Team.objects.filter(favorite=request.user).order_by('name')
