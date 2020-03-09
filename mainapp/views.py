@@ -18,6 +18,8 @@ def upload_page(request):
     w_teams = Team.objects.filter(conference="West").order_by('name')
     e_teams = Team.objects.filter(conference="East").order_by('name')
     teams_list = request.GET.getlist('team')
+    noteams = False
+    message = ''
     if teams_list:
         schedule = Schedule()
         service = calendar_connection()
@@ -52,9 +54,15 @@ def upload_page(request):
 
         messages.success(request, f'Schedules successfully uploaded, check your Google Calendar')
 
+    elif len(teams_list) == 0:
+        noteams = True
+        message = 'Please select at least one team'
+
     context = {
         'w_teams': w_teams,
         'e_teams': e_teams,
+        'noteams': noteams,
+        'message': message
     }
 
     return render(request, 'mainapp/upload.html', context)
