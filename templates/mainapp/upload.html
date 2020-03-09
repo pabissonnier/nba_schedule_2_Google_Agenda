@@ -86,7 +86,7 @@
                               {% for w_team in w_teams %}
                                   <div class="col-sm-3 text center">
                                       <div>
-                                          <input type="checkbox" id="teambox" name="team" value="{{ w_team.name }}"/>
+                                          <input type="checkbox" id="teambox" name="team" value="{{ w_team.name }}" />
                                           <label for="teambox"><img class="img-thumbnail" width="70" alt="{{ w_team.name }}" src="{{ w_team.picture }}" /></label>
                                       </div>
                                   </div>
@@ -96,13 +96,11 @@
                       <div class="container">
                           <div class="row">
                               <div class="col-lg-12 align-content-center">
-                                <button class="btn btn-info" type="submit">Upload</button>
-                                  <div id="spinner-grow" role="status" style="visibility: visible;">
+                                <button class="btn btn-info" type="submit" onclick="checkedOrNot()">Upload</button>
+                                  <div id="spinner-border" role="status" style="visibility: visible;">
                                       <span class="sr-only">Loading...</span>
                                   </div>
-                                  {%  if noteams %}
-                                      {{  message }}
-                                  {%  endif %}
+                                  <p id="text" style="display:none">Please select at least one team</p>
                               </div>
                           </div>
                       </div>
@@ -182,6 +180,22 @@
     window.onload = function() {
       var spinner = document.getElementById('spinner-grow');
       spinner.style.visibility = 'visible';
+    }
+    </script>
+
+  <script>
+    function checkedOrNot() {
+      // Get the checkbox
+      var teambox = document.getElementById("teambox");
+      // Get the output text
+      var text = document.getElementById("text");
+
+      // If the checkbox is checked, display the output text
+      if (teambox.checked == false){
+        text.style.display = "block";
+      } else {
+        text.style.display = "none";
+      }
     }
     </script>
 </body>

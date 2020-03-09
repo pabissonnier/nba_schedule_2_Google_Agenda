@@ -20,8 +20,10 @@ class Schedule(models.Model):
         for team in team_list:
             team_db_h = Schedule.objects.filter(hteam=team)
             team_db_v = Schedule.objects.filter(vteam=team)
-            games_list.append(team_db_h)
-            games_list.append(team_db_v)
+            if team_db_h not in games_list:
+                games_list.append(team_db_h)
+            elif team_db_v not in games_list:
+                games_list.append(team_db_v)
         return games_list
 
     def extraction_to_gformat(self, game):
