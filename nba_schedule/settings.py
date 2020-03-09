@@ -96,6 +96,11 @@ DATABASES = {
     }
 }
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'ns2gc.openclassrooms@gmail.com'
+EMAIL_HOST_PASSWORD = '458127NS2GC'
+EMAIL_PORT = 587
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
