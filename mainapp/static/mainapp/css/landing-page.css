@@ -137,7 +137,7 @@ li {
   display: inline-block;
 }
 
-input[type="checkbox"][id^="myCheckbox"] {
+input[type="checkbox"][id="teambox"] {
   display: none;
 }
 
@@ -169,8 +169,6 @@ label:before {
 }
 
 label img {
-  height: 100px;
-  width: 100px;
   transition-duration: 0.2s;
   transform-origin: 50% 50%;
 }
@@ -183,10 +181,6 @@ label img {
   content: "✓";
   background-color: grey;
   transform: scale(1);
-}
-
-.content-section-profile {
-  padding-top: 30px;
 }
 
 :checked + label img {

@@ -15,6 +15,8 @@ def index(request):
 
 
 def upload_page(request):
+    w_teams = Team.objects.filter(conference="West").order_by('name')
+    e_teams = Team.objects.filter(conference="East").order_by('name')
     teams_list = request.GET.getlist('team')
     if teams_list:
         schedule = Schedule()
@@ -49,7 +51,13 @@ def upload_page(request):
         send_mail(subject, message, from_email, to_user, fail_silently=True)
 
         messages.success(request, f'Schedules successfully uploaded, check your Google Calendar')
-    return render(request, 'mainapp/upload.html')
+
+    context = {
+        'w_teams': w_teams,
+        'e_teams': e_teams,
+    }
+
+    return render(request, 'mainapp/upload.html', context)
 
 
 

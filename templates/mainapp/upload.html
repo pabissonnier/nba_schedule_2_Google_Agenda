@@ -69,48 +69,28 @@
                   <div class="row">
                       <div class="col-lg-6">
                           <h2>Eastern conference</h2>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Atlanta Hawks">
-                              <label for="scales">Atlanta Hawks</label>
-                          </div>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Boston Celtics">
-                              <label for="scales">Boston Celtics</label>
-                          </div>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Brooklyn Nets">
-                              <label for="scales">Brooklyn Nets</label>
-                          </div>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Charlotte Hornets">
-                              <label for="scales">Charlotte Hornets</label>
-                          </div>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Chicago Bulls">
-                              <label for="scales">Chicago Bulls</label>
+                          <div class="row h-250 align-items-center justify-content-center text-center">
+                              {% for e_team in e_teams %}
+                                  <div class="col-sm-3 text center">
+                                      <div>
+                                          <input type="checkbox" id="teambox" name="team" value="{{ e_team.name }}"/>
+                                          <label for="teambox"><img class="img-thumbnail" width="70" alt="{{ e_team.name }}" src="{{ e_team.picture }}" /></label>
+                                      </div>
+                                  </div>
+                              {%  endfor %}
                           </div>
                       </div>
                       <div class="col-lg-6">
                           <h2>Western conference</h2>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Dallas Mavericks">
-                              <label for="scales">Dallas Mavericks</label>
-                          </div>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Denver Nuggets">
-                              <label for="scales">Denver Nuggets</label>
-                          </div>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Golden State Warriors">
-                              <label for="scales">Golden State Warriors</label>
-                          </div>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Houston Rockets">
-                              <label for="scales">Houston Rockets</label>
-                          </div>
-                          <div>
-                              <input type="checkbox" id="teambox" name="team" value="Los Angeles Clippers">
-                              <label for="scales">Los Angeles Clippers</label>
+                          <div class="row h-250 align-items-center justify-content-center text-center">
+                              {% for w_team in w_teams %}
+                                  <div class="col-sm-3 text center">
+                                      <div>
+                                          <input type="checkbox" id="teambox" name="team" value="{{ w_team.name }}"/>
+                                          <label for="teambox"><img class="img-thumbnail" width="70" alt="{{ w_team.name }}" src="{{ w_team.picture }}" /></label>
+                                      </div>
+                                  </div>
+                              {%  endfor %}
                           </div>
                       </div>
                       <div class="container">
