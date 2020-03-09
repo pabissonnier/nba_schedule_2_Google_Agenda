@@ -35,6 +35,8 @@ class TeamInfos:
             game_list.append(hteam_score)
             game_list.append(vteam)
             game_list.append(vteam_score)
+            game_list.insert(1, ":")
+            game_list.insert(4, " @ ")
             if hteam_score != "" and vteam_score != "":
                 nba_game_list.append(game_list)
             else:

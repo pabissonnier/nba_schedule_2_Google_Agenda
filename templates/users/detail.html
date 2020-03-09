@@ -61,19 +61,27 @@
       </div>
     </div>
     <div class="row justify-content-md-center">
-        <div class="col-md-8">
+        <img class="img-thumbnail" src="{{ picture }}" alt="{{ title }}" width="200"><p>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
             <div class="profile-bloc">
                 <div class="favs-bloc">
-                    <img class="img-thumbnail" src="{{ picture }}" alt="{{ title }}" width="200"><p>
-                    <h5>Conference:</h5> <h6>{{ conference }}</h6>
-                    <h5>Division:</h5><h6>{{ division }}</h6>
+                    <h5>Conference:</h5> <h6>{{ conference }}</h6><br />
+                    <h5>Division:</h5><h6>{{ division }}</h6><br />
                     <h5>Last 5 games:</h5>
                     {%  for game in last_games %}
-                        <h6>{{ game }}</h6>
+                        <p>{{ game|join:" " }}</p>
                     {%  endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="profile-bloc">
+                <div class="favs-bloc">
                     <h5>Roster: </h5>
                     {% for player in players %}
-                        <h6><a href="{% url 'player-detail' player_id=player.id %}">{{ player.firstname }} {{ player.lastname }}  {{ player.position }} </a></h6>
+                        <p><a href="{% url 'player-detail' player_id=player.id %}">{{ player.firstname }} {{ player.lastname }}  {{ player.position }} </a></p>
                     {%  endfor %}
                 </div>
             </div>
