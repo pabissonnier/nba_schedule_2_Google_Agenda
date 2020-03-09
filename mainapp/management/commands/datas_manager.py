@@ -47,10 +47,12 @@ class DatasManager:
             game_date = game["startTimeUTC"]
             game_day = game_date[:10]
             game_hour = game_date[11:16]
+            arena = game["arena"]
             vteam = game["vTeam"]["fullName"]
             hteam = game["hTeam"]["fullName"]
             nba_game.append(game_day)
             nba_game.append(game_hour)
+            nba_game.append(arena)
             nba_game.append(vteam)
             nba_game.append(hteam)
             nba_game_list.append(nba_game)
@@ -71,10 +73,12 @@ class DatasManager:
                 nba_real_day_date = nba_real_day.date()
             else:
                 nba_real_day_date = nba_day.date()
-            vteam = game[2]
-            hteam = game[3]
+            arena = game[2]
+            vteam = game[3]
+            hteam = game[4]
             nba_game.append(nba_real_day_date.strftime("%Y-%m-%d"))
             nba_game.append(nba_real_hour_time.strftime("%H:%M"))
+            nba_game.append(arena)
             nba_game.append(vteam)
             nba_game.append(hteam)
             nba_real_list.append(nba_game)
@@ -85,9 +89,9 @@ class DatasManager:
         for game_list in nba_real_list:
             game_date = game_list[0]
             game_hour = game_list[1]
-            game_vteam = game_list[2]
-            game_hteam = game_list[3]
-            game_type = "season"
+            arena = game_list[2]
+            game_vteam = game_list[3]
+            game_hteam = game_list[4]
             insertion_datas = Schedule(date=game_date, hour=game_hour, vteam=game_vteam, hteam=game_hteam,
-                                       game_type=game_type)
+                                       arena=arena)
             insertion_datas.save()

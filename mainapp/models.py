@@ -10,7 +10,7 @@ class Schedule(models.Model):
     hour = models.CharField(max_length=25, null=True)
     vteam = models.CharField(max_length=25, null=True)
     hteam = models.CharField(max_length=25, null=True)
-    game_type = models.CharField(max_length=25, null=True)
+    arena = models.CharField(max_length=100, null=True)
 
     def __str__(self):
         return self.date
@@ -43,7 +43,7 @@ class Schedule(models.Model):
         summary = vteam + ' @ '+hteam
         start_date = datetime.strftime(gamed, '%Y-%m-%d') + 'T' + datetime.strftime(gameh_dt, '%H:%M') + ':00'
         end_date = datetime.strftime(gamed, '%Y-%m-%d') + 'T' + datetime.strftime(gameh_end_dt, '%H:%M') + ':00'
-        location = "Stadium"
+        location = game.arena
         description = "Your schedule from NS2GC"
         timezone = "America/New_York"
         event['summary'] = summary
