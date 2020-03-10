@@ -71,15 +71,17 @@
         <div class="col-md-5">
             <div class="profile-bloc">
                 <div class="profile-text-bloc">
-                   <h4>{{ user.username }}</h4>
+                   <h4>{{ user.first_name|title }} {{ user.last_name|title }}</h4>
                     <p>{{ user.email }}</p>
-                    <a href="/favs" id="favs">Favs</a>
+                    <a href="/favs" id="favs"><button class="btn btn-info">Favs</button></a>
                     {%  if user in product.favorites.all %}
                         <form action='{%  url 'remove-calendar' %}'>
-                            <button name="rm-calendar" type="submit" class="btn btn-secondary btn-xs js-scroll-trigger">Remove calendar</button>
+                            <button name="rm-calendar" type="submit" class="btn btn-info">Remove calendar</button>
                         </form>
                     {% else %}
-                        <a href="/upload" id="upload">Add teams schedule now</a>
+                        <div>
+                            <a href="/upload" id="upload"><button class="btn btn-info">Add teams schedule now</button></a>
+                        </div>
                     {% endif %}
                 </div>
             </div>
