@@ -93,10 +93,15 @@
                               {%  endfor %}
                           </div>
                       </div>
-                      <div class="row">
-                          <div>
-                              <input type="checkbox" onclick="allTeams(this)" />
-                              <label for="teambox"><img class="img-thumbnail" width="70" alt="nba" src="nba-logo" /></label>
+                      <div class="container align-content-center">
+                          <div class="row">
+                              <div class="col-sm-12 text center">
+                                  <h2>All teams</h2>
+                                  <div>
+                                      <input type="checkbox" onclick="allTeams(this)" />
+                                      <label for="teambox"><img class="img-thumbnail" width="100" alt="nba" src="{% static 'mainapp/img/nba-logo.png' %}"/></label>
+                                  </div>
+                              </div>
                           </div>
                       </div>
                       <div class="container">
