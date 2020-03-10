@@ -53,6 +53,13 @@
         </div>
   </nav>
   <div class="content-section-profile">
+      {% if messages %}
+            {% for message in messages %}
+                  <div class="alert alert-success">
+                    <div class="alert alert-{{ message.tags }}">{{  message }}</div>
+                  </div>
+            {% endfor %}
+        {% endif %}
     <div class="row justify-content-md-center">
         <div class="col-md-12 text-center">
             <h2>Locker room</h2>
@@ -67,9 +74,13 @@
                    <h4>{{ user.username }}</h4>
                     <p>{{ user.email }}</p>
                     <a href="/favs" id="favs">Favs</a>
-                    <form action='{%  url 'remove-calendar' %}'>
-                        <button name="defav-btn" type="submit" class="btn btn-tertiary btn-xs js-scroll-trigger">Remove calendar</button>
-                    </form>
+                    {%  if user in product.favorites.all %}
+                        <form action='{%  url 'remove-calendar' %}'>
+                            <button name="rm-calendar" type="submit" class="btn btn-secondary btn-xs js-scroll-trigger">Remove calendar</button>
+                        </form>
+                    {% else %}
+                        <a href="/upload" id="upload">Add teams schedule now</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
