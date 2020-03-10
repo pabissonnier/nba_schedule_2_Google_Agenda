@@ -55,7 +55,7 @@
   <div class="content-section-profile">
     <div class="row justify-content-md-center">
         <div class="col-md-12 text-center">
-            <h2>Vos informations</h2>
+            <h2>Locker room</h2>
             <hr class="divider my-4">
         </div>
       </div>
@@ -67,6 +67,9 @@
                    <h4>{{ user.username }}</h4>
                     <p>{{ user.email }}</p>
                     <a href="/favs" id="favs">Favs</a>
+                    <form action='{%  url 'remove-calendar' %}'>
+                        <button name="defav-btn" type="submit" class="btn btn-tertiary btn-xs js-scroll-trigger">Remove calendar</button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -69,27 +69,27 @@
                   <div class="row">
                       <div class="col-lg-6">
                           <h2>Eastern conference</h2>
-                          <div class="row h-250 align-items-center justify-content-center text-center">
+                          <ul class="row h-250 align-items-center justify-content-center text-center">
                               {% for e_team in e_teams %}
-                                  <div class="col-sm-3 text center">
-                                      <div>
+                                  <ul>
+                                      <li>
                                           <input type="checkbox" id="teambox" name="team" value="{{ e_team.name }}"/>
                                           <label for="teambox"><img class="img-thumbnail" width="70" alt="{{ e_team.name }}" src="{{ e_team.picture }}" /></label>
-                                      </div>
-                                  </div>
+                                      </li>
+                                  </ul>
                               {%  endfor %}
                           </div>
                       </div>
                       <div class="col-lg-6">
                           <h2>Western conference</h2>
-                          <div class="row h-250 align-items-center justify-content-center text-center">
+                          <ul class="row h-250 align-items-center justify-content-center text-center">
                               {% for w_team in w_teams %}
-                                  <div class="col-sm-3 text center">
-                                      <div>
+                                  <ul>
+                                      <li>
                                           <input type="checkbox" id="teambox" name="team" value="{{ w_team.name }}" />
                                           <label for="teambox"><img class="img-thumbnail" width="70" alt="{{ w_team.name }}" src="{{ w_team.picture }}" /></label>
-                                      </div>
-                                  </div>
+                                      </li>
+                                  </ul>
                               {%  endfor %}
                           </div>
                       </div>

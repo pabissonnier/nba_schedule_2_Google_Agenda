@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from .team_datas import TeamInfos
+from mainapp.calendar_insertion import get_calendar_id, calendar_connection
+from django.contrib import messages
+
 import wikipedia
 
 from .models import Team, Player
@@ -61,3 +64,12 @@ def player_detail(request, player_id):
         return render(request, 'users/player_detail.html', context)
     else:
         pass
+
+
+@login_required()
+def remove_calendar(request):
+    service = calendar_connection()
+    calendar_id = get_calendar_id(service)
+    service.calendars().delete(calendarId=calendar_id).execute()
+    messages.success(request, f'NS2GC calendar successfully removed from your Google Calendar')
+    return redirect(request.META['HTTP_REFERER'])
