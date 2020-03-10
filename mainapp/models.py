@@ -22,7 +22,6 @@ class Schedule(models.Model):
             team_db_v = Schedule.objects.filter(vteam=team)
             games_list.append(team_db_h)
             games_list.append(team_db_v)
-        games_list = list(dict.fromkeys(games_list))
         return games_list
 
     def extraction_to_gformat(self, game):
