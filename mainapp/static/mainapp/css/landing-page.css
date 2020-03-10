@@ -43,8 +43,8 @@ header.masthead h1 {
 
 @media (min-width: 768px) {
   header.masthead {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
+    padding-top: 9rem;
+    padding-bottom: 8rem;
   }
   header.masthead h1 {
     font-size: 3rem;
@@ -190,5 +190,9 @@ label img {
 }
 
 .content-section-profile {
+  padding-top: 30px;
+}
+
+.showcase {
   padding-top: 30px;
 }

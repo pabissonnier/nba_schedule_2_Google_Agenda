@@ -7,7 +7,7 @@ from django.conf import settings
 from .models import Schedule
 from users.models import Team
 from .calendar_insertion import calendar_connection, calendar_insertion, event_insertion, \
-    check_calendar_exist, get_calendar_id
+    check_calendar_exist, get_calendar_id, check_event_exist
 
 
 def index(request):
@@ -40,17 +40,20 @@ def upload_page(request):
                 game_dict = Schedule.extraction_to_gformat(schedule, game)
                 game_list.append(game_dict)
             for event in game_list:
-                event_insertion(service, calendar_id, event)
-            messages.success(request, f'Schedules successfully uploaded, check your Google Calendar')
-            subject = "Merci pour votre inscription !"
-            message = 'Hello {0} !,\n\n' \
-                      'Nous sommes ravis de vous compter parmi nos utilisateurs :) ' \
-                      'Vous pouvez désormais ajouter des produits à votre liste de favoris...\n\n' \
-                      'A bientôt chez Purbeurre'.format(request.user.username.title())
-            from_email = settings.EMAIL_HOST_USER
-            to_list = [request.user.email, settings.EMAIL_HOST_USER]
-            send_mail(subject, message, from_email, to_list, fail_silently=False)
-            return redirect('upload')
+                if not check_event_exist(service, calendar_id, event):
+                    event_insertion(service, calendar_id, event)
+        messages.success(request, f'Schedules successfully uploaded, check your Google Calendar')
+        subject = "Your NBA schedules"
+        message = 'Hello {0},\n\n' \
+                  'Your NBA team(s) schedule is now updloaded to your Google Agenda ! ' \
+                  'Please check your agenda to see them, if you want to erase them, please go to your calendar and' \
+                  'remove the "Your NBA team(s) Schedule" calendar. Afterwards you can recreate an agenda on our' \
+                  'website.\n\n' \
+                  'See you soon !'.format(request.user.username.title())
+        from_email = settings.EMAIL_HOST_USER
+        to_list = [request.user.email, settings.EMAIL_HOST_USER]
+        send_mail(subject, message, from_email, to_list, fail_silently=False)
+        return redirect('upload')
 
     context = {
         'w_teams': w_teams,
