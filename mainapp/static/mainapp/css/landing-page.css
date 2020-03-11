@@ -199,3 +199,8 @@ label img {
 .showcase {
   padding: 30px;
 }
+
+
+#upload_block {
+  height: 100%;
+}

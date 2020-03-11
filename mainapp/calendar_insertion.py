@@ -1,20 +1,26 @@
 from urllib.request import Request
 
 from googleapiclient.discovery import build
+
 from httplib2 import Http
 from oauth2client import file, client, tools
 from datetime import datetime
 from google_auth_oauthlib.flow import InstalledAppFlow
+import allauth
+from allauth.socialaccount.models import SocialToken
+import google.auth.credentials
 import pickle
 import os.path
 
 
-def calendar_connection():
+def calendar_connection(request, user):
     SCOPES = "https://www.googleapis.com/auth/calendar"
+    flow = InstalledAppFlow.from_client_secrets_file('mainapp/credentials.json', SCOPES)
+    creds = flow.credentials(allauth.socialaccount.models.SocialToken()
+    service = build('calendar', 'v3', credentials=creds)
+    return service
 
-    creds = None
-
-    if os.path.exists('mainapp/token.pickle'):
+    """if os.path.exists('mainapp/token.pickle'):
         with open('mainapp/token.pickle', 'rb') as token:
             creds = pickle.load(token)
     if not creds or not creds.valid:
@@ -24,7 +30,7 @@ def calendar_connection():
             pickle.dump(creds, token)
 
     service = build('calendar', 'v3', credentials=creds)
-    return service
+    return service"""
 
 
 def check_calendar_exist(service):
