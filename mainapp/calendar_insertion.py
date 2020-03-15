@@ -17,16 +17,16 @@ import os.path
 
 def calendar_connection():
     SCOPES = ["https://www.googleapis.com/auth/calendar"]
-    flow = InstalledAppFlow.from_client_secrets_file('mainapp/credentials.json', scopes=SCOPES)
+    """flow = InstalledAppFlow.from_client_secrets_file('mainapp/credentials.json', scopes=SCOPES)
     creds = flow.authorized_session()
     user_agent = 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'
     creds = client.AccessTokenCredentials(SocialToken.token, user_agent)
     service = build('calendar', 'v3', credentials=creds)
-    return service
-
-    """if os.path.exists('mainapp/token.pickle'):
+    return service"""
+    creds = None
+    if os.path.exists('mainapp/token.pickle'):
         with open('mainapp/token.pickle', 'rb') as token:
-            creds = pickle.load(token)
+            creds = pickle.load(token, encoding="ASCII")
     if not creds or not creds.valid:
         flow = InstalledAppFlow.from_client_secrets_file('mainapp/credentials.json', SCOPES)
         creds = flow.run_local_server(port=0)
@@ -34,7 +34,7 @@ def calendar_connection():
             pickle.dump(creds, token)
 
     service = build('calendar', 'v3', credentials=creds)
-    return service"""
+    return service
 
 
 def check_calendar_exist(service):
