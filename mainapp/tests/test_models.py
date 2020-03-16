@@ -34,7 +34,7 @@ class ScheduleTestCase(TestCase):
         self.assertEqual()
         # find query set result
 
-    
+
 
 
     def test_find_similar_name(self):
