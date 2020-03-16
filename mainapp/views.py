@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import Schedule
+from allauth.socialaccount.models import SocialToken
 from users.models import Team
 from .calendar_insertion import calendar_connection, calendar_insertion, event_insertion, \
     check_calendar_exist, get_calendar_id, check_event_exist
