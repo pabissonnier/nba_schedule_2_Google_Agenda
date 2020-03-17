@@ -26,7 +26,7 @@ def calendar_connection():
     creds = None
     if os.path.exists('mainapp/token.pickle'):
         with open('mainapp/token.pickle', 'rb') as token:
-            creds = pickle.load(token, encoding="ASCII")
+            creds = pickle.load(token)
     if not creds or not creds.valid:
         flow = InstalledAppFlow.from_client_secrets_file('mainapp/credentials.json', SCOPES)
         creds = flow.run_local_server(port=0)
@@ -73,25 +73,8 @@ def get_calendar_id(service):
             return calendar_list_entry['id']
 
 
-def check_event_exist(service, calendar_id, event):
-    events = service.events().list(calendarId=calendar_id).execute()
-    for element in events['items']:
-        if event["summary"] == element["summary"]:
-            if event["start"]["dateTime"] == element["start"]["dateTime"]:
-                return True
-            else:
-                return False
-        else:
-            return False
-
-
 def event_insertion(service, calendar_id, event):
-    page_token = None
-    events = service.events().list(calendarId=calendar_id, pageToken=page_token).execute()
-    if event in events["items"]:
-        pass
-    else:
-        service.events().insert(calendarId=calendar_id, body=event).execute()
-        print(f"The event has been created! View it at {event.get('htmlLink')}!")
+    service.events().insert(calendarId=calendar_id, body=event).execute()
+    print(f"The event has been created! View it at {event.get('htmlLink')}!")
 
 

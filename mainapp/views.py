@@ -1,14 +1,12 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import Schedule
-from allauth.socialaccount.models import SocialToken
 from users.models import Team
 from .calendar_insertion import calendar_connection, calendar_insertion, event_insertion, \
-    check_calendar_exist, get_calendar_id, check_event_exist
+    check_calendar_exist, get_calendar_id
 
 
 def index(request):
@@ -16,7 +14,7 @@ def index(request):
 
 
 def upload_page(request):
-
+    global game_list, schedule_list, schedule_detail
     w_teams = Team.objects.filter(conference="West").order_by('name')
     e_teams = Team.objects.filter(conference="East").order_by('name')
     teams_list = request.GET.getlist('team')
@@ -35,14 +33,21 @@ def upload_page(request):
             team_to_insert.favorite.add(request.user)
 
         schedule_list = Schedule.get_teams_agenda(schedule, teams_list)
+        game_list = []
         for schedule_detail in schedule_list:
-            game_list = []
             for game in schedule_detail:
-                game_dict = Schedule.extraction_to_gformat(schedule, game)
-                game_list.append(game_dict)
-            for event in game_list:
-                if not check_event_exist(service, calendar_id, event):
-                    event_insertion(service, calendar_id, event)
+                game_id = game.id
+                game_list.append(game_id)
+            game_list = list(dict.fromkeys(game_list))
+        game_list_final = []
+        for game_id in game_list:
+            game = Schedule.objects.get(id=game_id)
+            game_dict = Schedule.extraction_to_gformat(schedule, game)
+            game_list_final.append(game_dict)
+
+        for event in game_list_final:
+            event_insertion(service, calendar_id, event)
+
         messages.success(request, f'Schedules successfully uploaded, check your Google Calendar')
         subject = "Your NBA schedules"
         message = 'Hello {0},\n\n' \

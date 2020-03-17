@@ -25,11 +25,10 @@ class Schedule(models.Model):
         return games_list
 
     def extraction_to_gformat(self, game):
-        global summary
         event = {}
         hteam = game.hteam
         vteam = game.vteam
-        gameh = game.hour #string
+        gameh = game.hour
         game_day = game.date
         gameh_dt = datetime.strptime(gameh, '%H:%M')
         gameh_end = datetime.strftime(gameh_dt + timedelta(hours=1), '%H:%M')
@@ -43,7 +42,7 @@ class Schedule(models.Model):
         start_date = datetime.strftime(gamed, '%Y-%m-%d') + 'T' + datetime.strftime(gameh_dt, '%H:%M') + ':00'
         end_date = datetime.strftime(gamed, '%Y-%m-%d') + 'T' + datetime.strftime(gameh_end_dt, '%H:%M') + ':00'
         location = game.arena
-        description = "Your schedule from NS2GC"
+        description = "Your NBA game between {0} and {1} starting on the {2} at {3}".format(vteam, hteam, game_day, gameh)
         timezone = "America/New_York"
         event['summary'] = summary
         event['location'] = location
@@ -55,4 +54,3 @@ class Schedule(models.Model):
         event['end']['dateTime'] = end_date
         event['end']['timeZone'] = timezone
         return event
-
