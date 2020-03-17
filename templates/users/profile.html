@@ -74,14 +74,14 @@
                    <h4>{{ user.first_name|title }} {{ user.last_name|title }}</h4>
                     <p>{{ user.email }}</p>
                     <a href="/favs" id="favs"><button class="btn btn-info">Favs</button></a>
-                    {%  if user in product.favorites.all %}
-                        <form action='{%  url 'remove-calendar' %}'>
-                            <button name="rm-calendar" type="submit" class="btn btn-info">Remove calendar</button>
-                        </form>
-                    {% else %}
+                    {% if has_favs %}
                         <div>
                             <a href="/upload" id="upload"><button class="btn btn-info">Add teams schedule now</button></a>
                         </div>
+                    {% else %}
+                        <form action='{%  url 'remove-calendar' %}'>
+                            <button name="rm-calendar" type="submit" class="btn btn-info">Remove calendar</button>
+                        </form>
                     {% endif %}
                 </div>
             </div>

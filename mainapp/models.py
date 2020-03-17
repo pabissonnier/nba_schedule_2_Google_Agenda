@@ -42,7 +42,7 @@ class Schedule(models.Model):
         start_date = datetime.strftime(gamed, '%Y-%m-%d') + 'T' + datetime.strftime(gameh_dt, '%H:%M') + ':00'
         end_date = datetime.strftime(gamed, '%Y-%m-%d') + 'T' + datetime.strftime(gameh_end_dt, '%H:%M') + ':00'
         location = game.arena
-        description = "Your NBA game between {0} and {1} starting on the {2} at {3}".format(vteam, hteam, game_day, gameh)
+        description = "Your NBA game between {0} and {1} starting on the {2} at {3} EST".format(vteam, hteam, game_day, gameh)
         timezone = "America/New_York"
         event['summary'] = summary
         event['location'] = location

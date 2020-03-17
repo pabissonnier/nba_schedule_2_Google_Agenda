@@ -12,7 +12,17 @@ from .models import Team, Player
 
 @login_required()
 def profile(request):
-    return render(request, 'users/profile.html')
+    try:
+        if Team.objects.get(favorite=request.user.id):
+            has_favs = True
+    except:
+        has_favs = False
+    teams_list = Team.objects.all().order_by('name')
+    context = {
+        'teams': teams_list,
+        'has_favs': has_favs
+    }
+    return render(request, 'users/profile.html', context)
 
 
 @login_required()
@@ -70,7 +80,7 @@ def player_detail(request, player_id):
 def remove_calendar(request):
     service = calendar_connection()
     calendar_id = get_calendar_id(service)
-    Team.objects.filter(favorite=request.user.id).delete()
+    Team.favorite.remove(request.user)
     service.calendars().delete(calendarId=calendar_id).execute()
     messages.success(request, f'NS2GC calendar successfully removed from your Google Calendar')
     return redirect(request.META['HTTP_REFERER'])
