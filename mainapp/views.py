@@ -63,9 +63,15 @@ def upload_page(request):
             return redirect('upload')
         except:
             messages.warning(request, f"Schedules couldn't be uploaded, please try later")
+    e_list = ['teamBox1', 'teamBox2', 'teamBox3', 'teamBox4', 'teamBox5', 'teamBox6', 'teamBox7',
+              'teamBox8', 'teamBox9', 'teamBox10', 'teamBox11', 'teamBox12', 'teamBox13', 'teamBox14', 'teamBox15']
+    w_list = ['teamBox16', 'teamBox17', 'teamBox18', 'teamBox19', 'teamBox20', 'teamBox21', 'teamBox22',
+              'teamBox23', 'teamBox24', 'teamBox25', 'teamBox26', 'teamBox27', 'teamBox28', 'teamBox29', 'teamBox30']
     context = {
         'w_teams': w_teams,
-        'e_teams': e_teams
+        'e_teams': e_teams,
+        'w_list': w_list,
+        'e_list': e_list
     }
 
     return render(request, 'mainapp/upload.html', context)

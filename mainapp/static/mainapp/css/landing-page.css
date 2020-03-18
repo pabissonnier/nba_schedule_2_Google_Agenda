@@ -139,7 +139,7 @@ li {
   display: inline-block;
 }
 
-input[type="checkbox"][id="teambox"] {
+input[type="checkbox"][id^="teambox"] {
   display: none;
 }
 

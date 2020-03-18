@@ -65,7 +65,7 @@
       <div class="row no-gutters justify-content-center">
           <div class="col-lg-9 my-auto showcase-text">
             <h1>Pick the team(s) you want to follow</h1>
-              <form action="{% url 'upload' %}" method="get" id="team_form">
+              <form action="{% url 'upload' %}" method="get" name="team_form">
                   <div class="row">
                       <div class="col-lg-5">
                           <h2>Eastern conference</h2>
@@ -73,8 +73,8 @@
                               {% for e_team in e_teams %}
                                   <ul>
                                       <li>
-                                          <input type="checkbox" id="teambox" name="team" value="{{ e_team.name }}"/>
-                                          <label for="teambox"><img class="img-thumbnail" width="70" alt="{{ e_team.name }}" src="{{ e_team.picture }}" /></label>
+                                          <input type="checkbox" id="teambox1" name="team" value="{{ e_team.name }}"/>
+                                          <label for="teambox1"><img class="img-thumbnail" width="70" alt="{{ e_team.name }}" src="{{ e_team.picture }}" /></label>
                                       </li>
                                   </ul>
                               {%  endfor %}
@@ -95,8 +95,8 @@
                               {% for w_team in w_teams %}
                                   <ul>
                                       <li>
-                                          <input type="checkbox" id="teambox" name="team" value="{{ w_team.name }}" />
-                                          <label for="teambox"><img class="img-thumbnail" width="70" alt="{{ w_team.name }}" src="{{ w_team.picture }}" /></label>
+                                          <input type="checkbox" id="teambox2" name="team" value="{{ w_team.name }}" />
+                                          <label for="teambox2"><img class="img-thumbnail" width="70" alt="{{ w_team.name }}" src="{{ w_team.picture }}" /></label>
                                       </li>
                                   </ul>
                               {%  endfor %}
@@ -195,8 +195,8 @@
     function checkedOrNot() {
       // Get the output text
       var text = document.getElementById("text");
-      // If the checkbox is checked, display the output text
-      if (document.forms['team_form'].value ===""){
+      var formInput = document.forms["team_form"]["team"].value;
+      if (formInput == null || formInput === '') {
         text.style.visibility = "visible";
       } else {
         text.style.visibility = "hidden";
