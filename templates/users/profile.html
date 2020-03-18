@@ -74,7 +74,7 @@
                    <h4>{{ user.first_name|title }} {{ user.last_name|title }}</h4>
                     <p>{{ user.email }}</p>
                     <a href="/favs" id="favs"><button class="btn btn-info">Favs</button></a>
-                    {% if has_favs %}
+                    {% if not has_favs %}
                         <div>
                             <a href="/upload" id="upload"><button class="btn btn-info">Add teams schedule now</button></a>
                         </div>

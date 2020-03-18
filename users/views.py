@@ -12,10 +12,9 @@ from .models import Team, Player
 
 @login_required()
 def profile(request):
-    try:
-        if Team.objects.get(favorite=request.user.id):
-            has_favs = True
-    except:
+    if Team.objects.filter(favorite=request.user.id).exists():
+        has_favs = True
+    else:
         has_favs = False
     teams_list = Team.objects.all().order_by('name')
     context = {
