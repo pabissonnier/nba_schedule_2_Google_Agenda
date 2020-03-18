@@ -61,7 +61,7 @@
               </div>
         {% endfor %}
     {% endif %}
-    <div class="container-fluid p-0 text-center">
+    <div class="container-fluid p-4 text-center">
       <div class="row no-gutters justify-content-center">
           <div class="col-lg-9 my-auto showcase-text">
             <h1>Pick the team(s) you want to follow</h1>
@@ -111,12 +111,16 @@
                       <div class="container">
                           <div class="row">
                               <div class="col-lg-12 align-content-center">
-                                <button class="btn btn-info" type="submit" onclick="checkedOrNot()">Upload</button>
-                                  <div id="spinner-border" role="status" style="visibility: visible;">
-                                      <span class="sr-only">Loading...</span>
-                                  </div>
-                                  <p id="text" style="display:none">Please select at least one team</p>
+                                <button class="btn btn-info" type="submit" onclick="checkedOrNot();">Upload</button>
                               </div>
+                          </div>
+                              <div class="row">
+                                  <div class="col-lg-12 align-content-center">
+                                      <div id="spinner-grow" role="status" style="visibility: visible;">
+                                          <span class="sr-only">Loading...</span>
+                                      </div>
+                                      <p id="text" style="visibility:visible;">Please select at least one team</p>
+                                  </div>
                           </div>
                       </div>
               </form>
@@ -194,19 +198,18 @@
     window.onload = function() {
       var spinner = document.getElementById('spinner-grow');
       spinner.style.visibility = 'visible';
-    }
+    };
     </script>
 
   <script>
     function checkedOrNot() {
       // Get the output text
       var text = document.getElementById("text");
-
       // If the checkbox is checked, display the output text
       if (document.forms['team_form'].value ===""){
-        text.style.display = "block";
+        text.style.visibility = "visible";
       } else {
-        text.style.display = "none";
+        text.style.visibility = "hidden";
       }
     }
     </script>

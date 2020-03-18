@@ -53,36 +53,38 @@
         </div>
   </nav>
   <div class="content-section-profile">
-    <div class="row justify-content-md-center">
-        <div class="col-md-12 text-center">
-          <h2>{{ title }}</h2>
-          <hr class="divider my-4">
+      <div class="container-fluid p-4 text-center">
+        <div class="row justify-content-md-center">
+            <div class="col-md-12 text-center">
+              <h2>{{ title }}</h2>
+              <hr class="divider my-4">
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="row justify-content-md-center">
-        <img class="img-thumbnail" src="{{ picture }}" alt="{{ title }}" width="200"><p>
-    </div>
-    <div class="row justify-content-md-center">
-        <div class="col-md-4">
-            <div class="profile-bloc">
-                <div class="favs-bloc">
-                    <h5>Conference:</h5> <h6>{{ conference }}</h6><br />
-                    <h5>Division:</h5><h6>{{ division }}</h6><br />
-                    <h5>Last 5 games:</h5>
-                    {%  for game in last_games %}
-                        <p>{{ game|join:" " }}</p>
-                    {%  endfor %}
+        <div class="row justify-content-md-center">
+            <img class="img-thumbnail" src="{{ picture }}" alt="{{ title }}" width="200"><p>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-md-4">
+                <div class="profile-bloc">
+                    <div class="favs-bloc">
+                        <h5>Conference:</h5> <h6>{{ conference }}</h6><br />
+                        <h5>Division:</h5><h6>{{ division }}</h6><br />
+                        <h5>Last 5 games:</h5>
+                        {%  for game in last_games %}
+                            <p>{{ game|join:" " }}</p>
+                        {%  endfor %}
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-md-2">
-            <div class="profile-bloc">
-                <div class="favs-bloc">
-                    <h5>Roster: </h5>
-                    {% for player in players %}
-                        <p><a href="{% url 'player-detail' player_id=player.id %}">{{ player.firstname }} {{ player.lastname }}  {{ player.position }} </a></p>
-                    {%  endfor %}
+            <div class="col-md-2">
+                <div class="profile-bloc">
+                    <div class="favs-bloc">
+                        <h5>Roster: </h5>
+                        {% for player in players %}
+                            <p><a href="{% url 'player-detail' player_id=player.id %}">{{ player.firstname }} {{ player.lastname }}  {{ player.position }} </a></p>
+                        {%  endfor %}
+                    </div>
                 </div>
             </div>
         </div>
