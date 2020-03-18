@@ -80,7 +80,9 @@ def player_detail(request, player_id):
 def remove_calendar(request):
     service = calendar_connection()
     calendar_id = get_calendar_id(service)
-    Team.favorite.remove(request.user)
+    teams = Team.objects.filter(favorite=request.user.id)
+    for team in teams:
+        team.favorite.clear()
     service.calendars().delete(calendarId=calendar_id).execute()
     messages.success(request, f'NS2GC calendar successfully removed from your Google Calendar')
     return redirect(request.META['HTTP_REFERER'])
