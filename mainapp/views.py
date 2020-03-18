@@ -40,27 +40,29 @@ def upload_page(request):
                 game_list.append(game_id)
             game_list = list(dict.fromkeys(game_list))
         game_list_final = []
-        for game_id in game_list:
-            game = Schedule.objects.get(id=game_id)
-            game_dict = Schedule.extraction_to_gformat(schedule, game)
-            game_list_final.append(game_dict)
+        try:
+            for game_id in game_list:
+                game = Schedule.objects.get(id=game_id)
+                game_dict = Schedule.extraction_to_gformat(schedule, game)
+                game_list_final.append(game_dict)
 
-        for event in game_list_final:
-            event_insertion(service, calendar_id, event)
+            for event in game_list_final:
+                event_insertion(service, calendar_id, event)
 
-        messages.success(request, f'Schedules successfully uploaded, check your Google Calendar')
-        subject = "Your NBA schedules"
-        message = 'Hello {0},\n\n' \
-                  'Your NBA team(s) schedule is now updloaded to your Google Agenda ! ' \
-                  'Please check your agenda to see them, if you want to erase them, please go to your calendar and' \
-                  'remove the "Your NBA team(s) Schedule" calendar. Afterwards you can recreate an agenda on our' \
-                  'website.\n\n' \
-                  'See you soon !'.format(request.user.username.title())
-        from_email = settings.EMAIL_HOST_USER
-        to_list = [request.user.email, settings.EMAIL_HOST_USER]
-        send_mail(subject, message, from_email, to_list, fail_silently=False)
-        return redirect('upload')
-
+            messages.success(request, f'Schedules successfully uploaded, check your Google Calendar')
+            subject = "Your NBA schedules"
+            message = 'Hello {0},\n\n' \
+                      'Your NBA team(s) schedule is now updloaded to your Google Agenda ! ' \
+                      'Please check your agenda to see them, if you want to erase them, please go to your calendar and' \
+                      'remove the "Your NBA team(s) Schedule" calendar. Afterwards you can recreate an agenda on our' \
+                      'website.\n\n' \
+                      'See you soon !'.format(request.user.username.title())
+            from_email = settings.EMAIL_HOST_USER
+            to_list = [request.user.email, settings.EMAIL_HOST_USER]
+            send_mail(subject, message, from_email, to_list, fail_silently=False)
+            return redirect('upload')
+        except:
+            messages.warning(request, f"Schedules couldn't be uploaded, please try later")
     context = {
         'w_teams': w_teams,
         'e_teams': e_teams

@@ -56,7 +56,7 @@
   <div class="content-section-profile">
       {% if messages %}
             {% for message in messages %}
-                  <div class="alert alert-success">
+                  <div class="alert">
                     <div class="alert alert-{{ message.tags }}">{{  message }}</div>
                   </div>
             {% endfor %}

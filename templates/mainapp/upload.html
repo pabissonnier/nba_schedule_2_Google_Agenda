@@ -23,7 +23,7 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
   <!-- Custom styles for this template -->
-  <link href="{% static "mainapp/css/landing-page.min.css"%}" rel="stylesheet">
+  <link href="{% static "mainapp/css/landing-page.css"%}" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <meta name="google-signin-scope" content="profile email">
@@ -56,7 +56,7 @@
   <section id="upload_block">
     {% if messages %}
         {% for message in messages %}
-              <div class="alert alert-success">
+              <div class="alert">
                 <div class="alert alert-{{ message.tags }}">{{  message }}</div>
               </div>
         {% endfor %}
@@ -80,12 +80,12 @@
                               {%  endfor %}
                           </div>
                       </div>
-                      <div class="col-lg-2">
-                          <div class="col-sm-12 text center">
+                      <div class="col-lg-2 p-5">
+                          <div class="col-sm-12 text center p-5">
                               <h2>All teams</h2>
                               <div>
-                                  <input type="checkbox" onclick="allTeams(this)" />
-                                  <label for="teambox"><img class="img-thumbnail" width="100" alt="nba" src="{% static 'mainapp/img/nba-logo.png' %}"/></label>
+                                  <input type="checkbox" id='teambox' onclick="allTeams(this)" />
+                                  <label for="teambox"><img class="img-thumbnail" width="120" alt="nba" src="{% static 'mainapp/img/nba-logo.png' %}"/></label>
                               </div>
                           </div>
                       </div>
@@ -103,31 +103,21 @@
                           </div>
                         </div>
                       </div>
-                      <div class="container align-content-center">
-                          <div class="row">
-
-                          </div>
-                      </div>
                       <div class="container">
-                          <div class="row">
-                              <div class="col-lg-12 align-content-center">
-                                <button class="btn btn-info" type="submit" onclick="checkedOrNot();">Upload</button>
+                          <div class="row ">
+                              <div class="col-lg-12 align-content-center p-1">
+                                <p id="text" style="visibility:hidden;">Please select at least one team</p>
+                                <button class="btn btn-info" type="submit" onclick="checkedOrNot();loaderActive();">Upload</button>
                               </div>
-                          </div>
-                              <div class="row">
-                                  <div class="col-lg-12 align-content-center">
-                                      <div id="spinner-grow" role="status" style="visibility: visible;">
-                                          <span class="sr-only">Loading...</span>
-                                      </div>
-                                      <p id="text" style="visibility:visible;">Please select at least one team</p>
-                                  </div>
+                              <div class="col-lg-12 d-flex justify-content-center">
+                                  <div id="loader" style="visibility: hidden;"></div>
+                              </div>
                           </div>
                       </div>
               </form>
           </div>
       </div>
     </div>
-  {{ game_list }}
   </section>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 
@@ -195,10 +185,10 @@
     </script>
 
     <script>
-    window.onload = function() {
-      var spinner = document.getElementById('spinner-grow');
+    function loaderActive() {
+      var spinner = document.getElementById('loader');
       spinner.style.visibility = 'visible';
-    };
+    }
     </script>
 
   <script>
