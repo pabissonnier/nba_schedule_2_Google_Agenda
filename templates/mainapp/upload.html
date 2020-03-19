@@ -70,14 +70,68 @@
                       <div class="col-lg-5">
                           <h2>Eastern conference</h2>
                           <div class="row h-250 align-items-center justify-content-center text-center">
-                              {% for e_team in e_teams %}
-                                  <ul>
-                                      <li>
-                                          <input type="checkbox" id="teambox1" name="team" value="{{ e_team.name }}"/>
-                                          <label for="teambox1"><img class="img-thumbnail" width="70" alt="{{ e_team.name }}" src="{{ e_team.picture }}" /></label>
-                                      </li>
-                                  </ul>
-                              {%  endfor %}
+                              <ul>
+                                  <li>
+                                      <input type="checkbox" id="teambox1" name="team" value="Atlanta Hawks"/>
+                                      <label for="teambox1"><img class="img-thumbnail" width="70" alt="Atlanta Hawks" src="https://upload.wikimedia.org/wikipedia/fr/e/ee/Hawks_2016.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox2" name="team" value="Boston Celtics"/>
+                                      <label for="teambox2"><img class="img-thumbnail" width="70" alt="Boston Celtics" src="https://upload.wikimedia.org/wikipedia/fr/thumb/6/65/Celtics_de_Boston_logo.svg/1024px-Celtics_de_Boston_logo.svg.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox3" name="team" value="Brooklyn Nets"/>
+                                      <label for="teambox3"><img class="img-thumbnail" width="70" alt="Brooklyn Nets" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Brooklyn_Nets_newlogo.svg/130px-Brooklyn_Nets_newlogo.svg.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox4" name="team" value="Charlotte Hornets"/>
+                                      <label for="teambox4"><img class="img-thumbnail" width="70" alt="Charlotte Hornets" src="https://upload.wikimedia.org/wikipedia/fr/thumb/f/f3/Hornets_de_Charlotte_logo.svg/1200px-Hornets_de_Charlotte_logo.svg.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox5" name="team" value="Chicago Bulls"/>
+                                      <label for="teambox5"><img class="img-thumbnail" width="70" alt="Chicago Bulls" src="https://upload.wikimedia.org/wikipedia/fr/thumb/d/d1/Bulls_de_Chicago_logo.svg/1200px-Bulls_de_Chicago_logo.svg.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox6" name="team" value="Cleveland Cavaliers"/>
+                                      <label for="teambox6"><img class="img-thumbnail" width="70" alt="Cleveland Cavaliers" src="https://upload.wikimedia.org/wikipedia/fr/thumb/0/06/Cavs_de_Cleveland_logo_2017.png/150px-Cavs_de_Cleveland_logo_2017.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox7" name="team" value="Detroit Pistons"/>
+                                      <label for="teambox7"><img class="img-thumbnail" width="70" alt="Detroit Pistons" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Pistons_logo17.svg" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox8" name="team" value="Indiana Pacers"/>
+                                      <label for="teambox8"><img class="img-thumbnail" width="70" alt="Indiana Pacers" src="https://upload.wikimedia.org/wikipedia/fr/thumb/c/cf/Pacers_de_l%27Indiana_logo.svg/1180px-Pacers_de_l%27Indiana_logo.svg.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox9" name="team" value="Miami Heat"/>
+                                      <label for="teambox9"><img class="img-thumbnail" width="70" alt="Miami Heat" src="https://upload.wikimedia.org/wikipedia/fr/thumb/1/1c/Miami_Heat_-_Logo.svg/1200px-Miami_Heat_-_Logo.svg.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox10" name="team" value="Milwaukee Bucks"/>
+                                      <label for="teambox10"><img class="img-thumbnail" width="70" alt="Milwaukee Bucks" src="https://upload.wikimedia.org/wikipedia/fr/3/34/Bucks2015.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox11" name="team" value="New York Knicks"/>
+                                      <label for="teambox11"><img class="img-thumbnail" width="70" alt="New York Knicks" src="https://upload.wikimedia.org/wikipedia/fr/d/dc/NY_Knicks_Logo_2011.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox12" name="team" value="Orlando Magic"/>
+                                      <label for="teambox12"><img class="img-thumbnail" width="70" alt="Orlando Magic" src="https://upload.wikimedia.org/wikipedia/fr/b/bd/Orlando_Magic_logo_2010.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox13" name="team" value="Philadelphia 76ers"/>
+                                      <label for="teambox13"><img class="img-thumbnail" width="70" alt="Philadelphia 76ers" src="https://upload.wikimedia.org/wikipedia/fr/4/48/76ers_2016.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox14" name="team" value="Toronto Raptors"/>
+                                      <label for="teambox14"><img class="img-thumbnail" width="70" alt="Toronto Raptors" src="https://upload.wikimedia.org/wikipedia/fr/8/89/Raptors2015.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox15" name="team" value="Washington Wizards"/>
+                                      <label for="teambox15"><img class="img-thumbnail" width="70" alt="Washington Wizards" src="https://upload.wikimedia.org/wikipedia/fr/archive/d/d6/20161212034849%21Wizards2015.png" /></label>
+                                  </li>
+                              </ul>
                           </div>
                       </div>
                       <div class="col-lg-2 p-5">
@@ -92,14 +146,68 @@
                       <div class="col-lg-5">
                           <h2>Western conference</h2>
                           <div class="row h-250 align-items-center justify-content-center text-center">
-                              {% for w_team in w_teams %}
-                                  <ul>
-                                      <li>
-                                          <input type="checkbox" id="teambox2" name="team" value="{{ w_team.name }}" />
-                                          <label for="teambox2"><img class="img-thumbnail" width="70" alt="{{ w_team.name }}" src="{{ w_team.picture }}" /></label>
-                                      </li>
-                                  </ul>
-                              {%  endfor %}
+                              <ul>
+                                  <li>
+                                      <input type="checkbox" id="teambox16" name="team" value="Dallas Mavericks"/>
+                                      <label for="teambox16"><img class="img-thumbnail" width="70" alt="Dallas Mavericks" src="https://upload.wikimedia.org/wikipedia/fr/thumb/b/b8/Mavericks_de_Dallas_logo.svg/150px-Mavericks_de_Dallas_logo.svg.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox17" name="team" value="Denver Nuggets"/>
+                                      <label for="teambox17"><img class="img-thumbnail" width="70" alt="Denver Nuggets" src="https://upload.wikimedia.org/wikipedia/fr/thumb/3/35/Nuggets_de_Denver_2018.png/180px-Nuggets_de_Denver_2018.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox18" name="team" value="Golden State Warriors"/>
+                                      <label for="teambox18"><img class="img-thumbnail" width="70" alt="Golden State Warriors" src="https://upload.wikimedia.org/wikipedia/fr/thumb/d/de/Warriors_de_Golden_State_logo.svg/1200px-Warriors_de_Golden_State_logo.svg.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox19" name="team" value="Houston Rockets"/>
+                                      <label for="teambox19"><img class="img-thumbnail" width="70" alt="Houston Rockets" src="https://upload.wikimedia.org/wikipedia/fr/thumb/d/de/Houston_Rockets_logo_2003.png/330px-Houston_Rockets_logo_2003.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox20" name="team" value="LA Clippers"/>
+                                      <label for="teambox20"><img class="img-thumbnail" width="70" alt="LA Clippers" src="https://upload.wikimedia.org/wikipedia/fr/d/d6/Los_Angeles_Clippers_logo_2010.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox21" name="team" value="Los Angeles Lakers"/>
+                                      <label for="teambox21"><img class="img-thumbnail" width="70" alt="Los Angeles Lakers" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Los_Angeles_Lakers_logo.svg/220px-Los_Angeles_Lakers_logo.svg.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox22" name="team" value="Memphis Grizzlies"/>
+                                      <label for="teambox22"><img class="img-thumbnail" width="70" alt="Memphis Grizzlies" src="https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/Memphis_Grizzlies.svg/1200px-Memphis_Grizzlies.svg.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox23" name="team" value="Minnesota Timberwolves"/>
+                                      <label for="teambox23"><img class="img-thumbnail" width="70" alt="Minnesota Timberwolves" src="https://upload.wikimedia.org/wikipedia/fr/thumb/d/d9/Timberwolves_du_Minnesota_logo_2017.png/200px-Timberwolves_du_Minnesota_logo_2017.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox24" name="team" value="New Orleans Pelicans"/>
+                                      <label for="teambox24"><img class="img-thumbnail" width="70" alt="New Orleans Pelicans" src="https://upload.wikimedia.org/wikipedia/fr/thumb/2/21/New_Orleans_Pelicans.png/200px-New_Orleans_Pelicans.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox25" name="team" value="Oklahoma City Thunder"/>
+                                      <label for="teambox25"><img class="img-thumbnail" width="70" alt="Oklahoma City Thunder" src="https://upload.wikimedia.org/wikipedia/fr/thumb/4/4f/Thunder_d%27Oklahoma_City_logo.svg/1200px-Thunder_d%27Oklahoma_City_logo.svg.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox26" name="team" value="Phoenix Suns"/>
+                                      <label for="teambox26"><img class="img-thumbnail" width="70" alt="Phoenix Suns" src="https://upload.wikimedia.org/wikipedia/fr/5/56/Phoenix_Suns_2013.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox27" name="team" value="Portland Trail Blazers"/>
+                                      <label for="teambox27"><img class="img-thumbnail" width="70" alt="Portland Trail Blazers" src="https://upload.wikimedia.org/wikipedia/en/thumb/2/21/Portland_Trail_Blazers_logo.svg/1200px-Portland_Trail_Blazers_logo.svg.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox28" name="team" value="Sacramento Kings"/>
+                                      <label for="teambox28"><img class="img-thumbnail" width="70" alt="Sacramento Kings" src="https://upload.wikimedia.org/wikipedia/fr/thumb/9/95/Kings_de_Sacramento_logo.svg/1200px-Kings_de_Sacramento_logo.svg.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox29" name="team" value="San Antonio Spurs"/>
+                                      <label for="teambox29"><img class="img-thumbnail" width="70" alt="San Antonio Spurs" src="https://upload.wikimedia.org/wikipedia/fr/0/0e/San_Antonio_Spurs_2018.png" /></label>
+                                  </li>
+                                  <li>
+                                      <input type="checkbox" id="teambox30" name="team" value="Utah Jazz"/>
+                                      <label for="teambox30"><img class="img-thumbnail" width="70" alt="Utah Jazz" src="https://upload.wikimedia.org/wikipedia/fr/3/3b/Jazz_de_l%27Utah_logo.png" /></label>
+                                  </li>
+                              </ul>
                           </div>
                         </div>
                       </div>
