@@ -49,4 +49,4 @@ class ScheduleTestCase(TestCase):
         function_output = Schedule.extraction_to_gformat(Schedule(), game)
         self.assertEqual(function_output, result)
 
-    
+
