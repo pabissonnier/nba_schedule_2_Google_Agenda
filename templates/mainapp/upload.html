@@ -65,7 +65,7 @@
       <div class="row no-gutters justify-content-center">
           <div class="col-lg-9 my-auto showcase-text">
             <h1>Pick the team(s) you want to follow</h1>
-              <form action="{% url 'upload' %}" method="get" name="team_form">
+              <form action="{% url 'upload' %}" method="get" name="team_form" onsubmit="checkedOrNot();loaderActive();">
                   <div class="row">
                       <div class="col-lg-5">
                           <h2>Eastern conference</h2>
@@ -214,12 +214,13 @@
                       <div class="container">
                           <div class="row ">
                               <div class="col-lg-12 align-content-center p-1">
-                                <p id="text" style="visibility:hidden;">Please select at least one team</p>
-                                <button class="btn btn-info btn-lg" type="submit" onclick="checkedOrNot();loaderActive();">Upload</button>
+                                <h4 id="text" style="visibility:hidden;">Please select at least one team</h4>
+                                <button class="btn btn-info btn-lg" type="submit" >Upload</button>
                               </div>
                               <div class="col-lg-12 d-flex justify-content-center">
                                   <div id="loader" style="visibility: hidden;"></div>
                               </div>
+                              {{ l }}
                           </div>
                       </div>
               </form>
@@ -303,12 +304,43 @@
     function checkedOrNot() {
       // Get the output text
       var text = document.getElementById("text");
-      var formInput = document.forms["team_form"]["team"].value;
-      if (formInput == null || formInput === '') {
-        text.style.visibility = "visible";
-      } else {
-        text.style.visibility = "hidden";
-      }
+      var input1 = document.getElementById('teambox1').checked;
+      var input2 = document.getElementById('teambox2').checked;
+      var input3 = document.getElementById('teambox3').checked;
+      var input4 = document.getElementById('teambox4').checked;
+      var input5 = document.getElementById('teambox5').checked;
+      var input6 = document.getElementById('teambox6').checked;
+      var input7 = document.getElementById('teambox7').checked;
+      var input8 = document.getElementById('teambox8').checked;
+      var input9 = document.getElementById('teambox9').checked;
+      var input10 = document.getElementById('teambox10').checked;
+      var input11 = document.getElementById('teambox11').checked;
+      var input12 = document.getElementById('teambox12').checked;
+      var input13 = document.getElementById('teambox13').checked;
+      var input14 = document.getElementById('teambox14').checked;
+      var input15 = document.getElementById('teambox15').checked;
+      var input16 = document.getElementById('teambox16').checked;
+      var input17 = document.getElementById('teambox17').checked;
+      var input18 = document.getElementById('teambox18').checked;
+      var input19 = document.getElementById('teambox19').checked;
+      var input20 = document.getElementById('teambox20').checked;
+      var input21 = document.getElementById('teambox21').checked;
+      var input22 = document.getElementById('teambox22').checked;
+      var input23 = document.getElementById('teambox23').checked;
+      var input24 = document.getElementById('teambox24').checked;
+      var input25 = document.getElementById('teambox25').checked;
+      var input26 = document.getElementById('teambox26').checked;
+      var input27 = document.getElementById('teambox27').checked;
+      var input28 = document.getElementById('teambox28').checked;
+      var input29 = document.getElementById('teambox29').checked;
+      var input30 = document.getElementById('teambox30').checked;
+      if (input1 === false && input2 === false && input3 === false && input4 === false && input5 === false && input6 === false && input7 === false && input8 === false && input9=== false && input10 === false
+      && input11 === false && input12 === false && input13 === false && input14 === false && input15 === false && input16 === false && input17 === false && input18 === false && input19 === false && input20 === false
+      && input21 === false && input22 === false && input23 === false && input24 === false && input25 === false && input26 === false && input27 === false && input28 === false && input29 === false && input30 === false) {
+            text.style.visibility = "visible";
+            text.style.color = 'red';
+            return false;
+          }
     }
     </script>
 
