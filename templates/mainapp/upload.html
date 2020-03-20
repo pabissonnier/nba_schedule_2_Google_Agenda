@@ -65,7 +65,7 @@
       <div class="row no-gutters justify-content-center">
           <div class="col-lg-9 my-auto showcase-text">
             <h1>Pick the team(s) you want to follow</h1>
-              <form action="{% url 'upload' %}" method="get" name="team_form" onsubmit="checkedOrNot();loaderActive();">
+              <form action="{% url 'upload' %}" method="get" name="team_form" onsubmit="checkedOrNot();">
                   <div class="row">
                       <div class="col-lg-5">
                           <h2>Eastern conference</h2>
@@ -341,6 +341,9 @@
             text.style.color = 'red';
             return false;
           }
+      else {
+          loaderActive()
+      }
     }
     </script>
 
