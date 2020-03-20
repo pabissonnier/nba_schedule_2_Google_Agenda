@@ -1,0 +1,49 @@
+{% extends 'mainapp/layout.html' %}
+
+{% block content %}
+  <div class="content-section-contact">
+    <div class="row justify-content-md-center">
+        <div class="col-md-12 text-center">
+          <h2>Qui suis-je ?</h2>
+          <hr class="divider my-4">
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+        <div class="contact-bloc">
+            <div class="row justify-content-md-center">
+                <div class="col-md-8 justify-text-md-center">
+                    <p>Après 7 ans d'expérience en e-commerce ainsi que webmarketeur et entrepreneur pendant plus de 4 ans, j'ai suivi
+                         en 2019 le programme "Développeur d'applications - PYTHON" d'Open Classrooms et souhaite proposer mes
+                        services dans les domaines de la robotique, de la data, du machine learning ou dans tout autre secteur
+                        qui me permettra de me "challenger".</p>
+
+                    <p>En plus de mes compétences techniques acquises pendant mon parcours, je possède
+                        une très bonne capacité d'analyse et une grande écoute.</p>
+                </div>
+            </div>
+            <div class="contact-pics">
+                <div class="col-md-8 text-center">
+                    <div class="row justify-content-md-center">
+                        {% load static %}
+                        <div class="col-md-4">
+                            <a href="https://www.linkedin.com/in/pierre-antoine-bissonnier-68885616/" target="_blank">
+                                <img src="{% static 'mainapp/img/linkedin.png' %}" alt="linkedin">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="https://www.malt.fr/profile/pierreantoinebissonnier" target="_blank">
+                                <img src="{% static 'mainapp/img/malt.png' %}" alt="malt">
+                            </a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="https://github.com/pabissonnier" target="_blank">
+                                <img src="{% static 'mainapp/img/github.png' %}" alt="github">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

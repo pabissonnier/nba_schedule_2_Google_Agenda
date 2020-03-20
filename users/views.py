@@ -84,3 +84,11 @@ def remove_calendar(request):
     service.calendars().delete(calendarId=calendar_id).execute()
     messages.success(request, f'NS2GC calendar successfully removed from your Google Calendar')
     return redirect(request.META['HTTP_REFERER'])
+
+
+def contact(request):
+    return render(request, 'users/contact.html')
+
+
+def mentions(request):
+    return render(request, 'users/mentions.html')
