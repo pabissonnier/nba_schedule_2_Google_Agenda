@@ -1,18 +1,7 @@
-from urllib.request import Request
-
 from googleapiclient.discovery import build
-
-from httplib2 import Http
-from oauth2client import file, client, tools
-from datetime import datetime
 from google_auth_oauthlib.flow import InstalledAppFlow
-import oauth2client
-import allauth
-from allauth.socialaccount.models import SocialToken
-from oauth2client import file, client
-import google.auth.credentials
-import pickle
 import os.path
+import pickle
 
 
 def calendar_connection():
