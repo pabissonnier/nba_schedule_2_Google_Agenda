@@ -1,1 +1,4 @@
 venv/
+nba_schedule/settings/production.py
+nba_schedule/staticfiles/
+__pycache__
