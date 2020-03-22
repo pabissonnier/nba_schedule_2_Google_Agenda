@@ -137,7 +137,7 @@ USE_TZ = True
 
 # Static files settings
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = 'mainapp/static/'
+STATIC_URL = '/static/'
 
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
