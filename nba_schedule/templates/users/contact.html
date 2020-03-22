@@ -3,47 +3,46 @@
 {% block content %}
   <div class="content-section-contact">
     <div class="row justify-content-md-center">
-        <div class="col-md-12 text-center">
-          <h2>Qui suis-je ?</h2>
+        <div class="col-md-12 text-center p-4">
+          <h2>Who am I ?</h2>
           <hr class="divider my-4">
         </div>
       </div>
-    </div>
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-md-center p-2">
         <div class="contact-bloc">
             <div class="row justify-content-md-center">
-                <div class="col-md-8 justify-text-md-center">
-                    <p>Après 7 ans d'expérience en e-commerce ainsi que webmarketeur et entrepreneur pendant plus de 4 ans, j'ai suivi
-                         en 2019 le programme "Développeur d'applications - PYTHON" d'Open Classrooms et souhaite proposer mes
-                        services dans les domaines de la robotique, de la data, du machine learning ou dans tout autre secteur
-                        qui me permettra de me "challenger".</p>
+                <div class="col-md-6 justify-text-md-center">
+                    <p> After 7 years of experience in e-commerce as well as web marketer and entrepreneur for more than 4 years, I followed
+                          in 2019 the Open Classrooms "Application Developer - PYTHON" program and would like to offer my
+                         services in the fields of robotics, data, machine learning or any other sector
+                         which will allow me to challenge myself. </p>
 
-                    <p>En plus de mes compétences techniques acquises pendant mon parcours, je possède
-                        une très bonne capacité d'analyse et une grande écoute.</p>
-                </div>
-            </div>
-            <div class="contact-pics">
-                <div class="col-md-8 text-center">
-                    <div class="row justify-content-md-center">
-                        {% load static %}
-                        <div class="col-md-4">
-                            <a href="https://www.linkedin.com/in/pierre-antoine-bissonnier-68885616/" target="_blank">
-                                <img src="{% static 'mainapp/img/linkedin.png' %}" alt="linkedin">
-                            </a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="https://www.malt.fr/profile/pierreantoinebissonnier" target="_blank">
-                                <img src="{% static 'mainapp/img/malt.png' %}" alt="malt">
-                            </a>
-                        </div>
-                        <div class="col-md-4">
-                            <a href="https://github.com/pabissonnier" target="_blank">
-                                <img src="{% static 'mainapp/img/github.png' %}" alt="github">
-                            </a>
+                     <p> In addition to my technical skills acquired during my career, I have
+                         very good analytical skills and great listening skills. </p>
+                    <div class="col-md-12 text-center">
+                        <div class="row justify-content-md-center p-5">
+                            {% load static %}
+                            <div class="col-md-4">
+                                <a  href="https://www.linkedin.com/in/pierre-antoine-bissonnier-68885616/" target="_blank">
+                                    <img class="img-thumbnail" width="70" src="{% static 'mainapp/img/linkedin.png' %}" alt="linkedin">
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="https://www.malt.fr/profile/pierreantoinebissonnier" target="_blank">
+                                    <img class="img-thumbnail" width="70" src="{% static 'mainapp/img/malt.png' %}" alt="malt">
+                                </a>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="https://github.com/pabissonnier" target="_blank">
+                                    <img class="img-thumbnail" width="70" src="{% static 'mainapp/img/github.png' %}" alt="github">
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+=        </div>
     </div>
+  </div>
+
 {% endblock %}

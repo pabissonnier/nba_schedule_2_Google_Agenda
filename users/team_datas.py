@@ -7,6 +7,7 @@ class TeamInfos:
         pass
 
     def team_api_connexion(self, team_id):
+        """ Connection to the API to get team datas """
         url = "https://api-nba-v1.p.rapidapi.com/games/teamId/{0}".format(team_id)
 
         headers = {

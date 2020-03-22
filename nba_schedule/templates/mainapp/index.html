@@ -39,14 +39,14 @@
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-            <div class="col-lg-9">
+            <div class="col-6 col-sm-8 col-xl-10 col-lg-8 col-md-8 my-auto">
                 <h1><a class="navbar-brand" href="/">NS to GC</a></h1>
             </div>
             {% if user.is_authenticated %}
-            <div class="col-lg-2 my-auto">
-                <a href="{% url 'profile' %}" id="account">Welcome {{ user.username|title }} !</a>
+            <div class="col-3 col-sm-2 col-xl-1 col-lg-2 col-md-2 my-auto float-left">
+                <a href="{% url 'profile' %}" id="account">Account</a>
             </div>
-            <div class="col-lg-1 my-auto">
+            <div class="col-3 col-sm-2 col-xl-1 col-lg-2 col-md-2 my-auto">
                 <a href="{% url 'logout' %}" id="signout">Sign out</a>
             </div>
             {%  endif %}
@@ -113,35 +113,35 @@
   </section>
 
   <!-- Image Showcases -->
-  <section class="showcase">
+  <section class="showcase p-2">
     <div class="container-fluid p-5 text-center">
         <h1>How does it work</h1>
-      <div class="row no-gutters">
-        <div class="col-lg-5 order-lg-2 text-white showcase-img" style="background-image: url({% static 'mainapp/img/1.png' %});"></div>
+      <div class="row no-gutters p-5">
+        <div class="col-lg-5 order-lg-2 text-white showcase-img" style="background-image: url({% static 'mainapp/img/1.png' %});background-size: contain;background-repeat: no-repeat;background-position:center;"></div>
         <div class="col-lg-7 order-lg-1 my-auto showcase-text">
           <h2>Connect to you Google account</h2>
           <p class="lead mb-0">Connect to your Google account on this page, a confirmation page opens and then click on the account to use.</p>
         </div>
       </div>
-      <div class="row no-gutters">
-        <div class="col-lg-5 text-white showcase-img" style="background-image: url({% static 'mainapp/img/2.jpg' %});"></div>
+      <div class="row no-gutters p-5">
+        <div class="col-lg-5 text-white showcase-img" style="background-image: url({% static 'mainapp/img/2.jpg' %});background-size: contain;background-repeat: no-repeat;background-position:center;"></div>
         <div class="col-lg-7 my-auto showcase-text">
           <h2>Pick your favorite NBA team(s)</h2>
           <p class="lead mb-0">Click on the "Updload" page, click on the team(s) you want to add. You can also choose to add all NBA teams schedules to your calendar by tclicking on the NBA logo.</p>
         </div>
       </div>
-      <div class="row no-gutters">
-        <div class="col-lg-5 order-lg-2 text-white showcase-img" style="background-image: url({% static 'mainapp/img/3.png' %});"></div>
+      <div class="row no-gutters p-5">
+        <div class="col-lg-5 order-lg-2 text-white showcase-img" style="background-image: url({% static 'mainapp/img/3.png' %});background-size: contain;background-repeat: no-repeat;background-position:center;"></div>
         <div class="col-lg-7 order-lg-1 my-auto showcase-text">
           <h2>Click on "upload to Google Calendar" </h2>
           <p class="lead mb-0">Click on "upload" button and see your games added to your calendar. Your will of course receive an email confirmation.</p>
         </div>
       </div>
-      <div class="row no-gutters">
-        <div class="col-lg-5 text-white showcase-img" style="background-image: url({% static 'mainapp/img/4.jpg' %});"></div>
+      <div class="row no-gutters p-5">
+        <div class="col-lg-5 text-white showcase-img" style="background-image: url({% static 'mainapp/img/4.jpg' %});background-size: contain;background-repeat: no-repeat;background-position:center;"></div>
         <div class="col-lg-7 my-auto showcase-text">
           <h2>Get many infos on your NS2GC account</h2>
-          <p class="lead mb-0">Click on the "Updload" page, click on the team(s) you want to add. You can also choose to add all NBA teams schedules to your calendar by tclicking on the NBA logo.</p>
+          <p class="lead mb-0">Click on the "Updload" page, click on the team(s) you want to add. You can also choose to add all NBA teams schedules to your calendar by clicking on the NBA logo.</p>
         </div>
       </div>
     </div>
@@ -154,22 +154,14 @@
         <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
           <ul class="list-inline mb-2">
             <li class="list-inline-item">
-              <a href="#">About</a>
+              <a href="/contact">Contact</a>
             </li>
             <li class="list-inline-item">&sdot;</li>
             <li class="list-inline-item">
-              <a href="#">Contact</a>
-            </li>
-            <li class="list-inline-item">&sdot;</li>
-            <li class="list-inline-item">
-              <a href="#">Terms of Use</a>
-            </li>
-            <li class="list-inline-item">&sdot;</li>
-            <li class="list-inline-item">
-              <a href="#">Privacy Policy</a>
+              <a href="/terms">Terms of Use</a>
             </li>
           </ul>
-          <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2019. All Rights Reserved.</p>
+          <p class="text-muted small mb-4 mb-lg-0">&copy;PéA. All Rights Reserved.</p>
         </div>
         <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
           <ul class="list-inline mb-0">

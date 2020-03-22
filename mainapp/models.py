@@ -16,6 +16,7 @@ class Schedule(models.Model):
         return self.date
 
     def get_teams_agenda(self, team_list):
+        """ Get the querysets for chosen teams """
         games_list = []
         for team in team_list:
             team_db_h = Schedule.objects.filter(hteam=team)
@@ -25,6 +26,7 @@ class Schedule(models.Model):
         return games_list
 
     def extraction_to_gformat(self, game):
+        """ Transform queryset into google calendar format """
         event = {}
         hteam = game.hteam
         vteam = game.vteam

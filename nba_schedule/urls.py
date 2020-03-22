@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^(?P<team_id>[0-9]+)/$', user_views.teams_detail, name='detail'),
     url(r'^players/(?P<player_id>[0-9]+)/$', user_views.player_detail, name='player-detail'),
     url(r'^contact/', user_views.contact, name='contact'),
-    url(r'^legalmentions/', user_views.mentions, name='mentions'),
+    url(r'^terms/', user_views.mentions, name='mentions'),
 ]
 
 

@@ -28,6 +28,7 @@ class DatasManager:
         return json_loads
 
     def get_teams_from_json(self, json_loads):
+        """ Get team infos from the api extraction """
         nba_teams_list = []
         for team in json_loads["api"]["teams"]:
             nba_team = []
@@ -48,6 +49,7 @@ class DatasManager:
         return nba_teams_list
 
     def team_insertion(self, nba_teams_list):
+        """ Insertion of the datas into the database """
         for team_list in nba_teams_list:
             team_id = team_list[0]
             team_name = team_list[1]
@@ -59,10 +61,8 @@ class DatasManager:
             if not data_already:
                 insertion_datas.save()
 
-
-# PLAYERS EXTRACTION
-
     def get_teams_names(self, nba_teams_list):
+        """ Get the names of the teams to display more infos """
         teams_names = []
         for team in nba_teams_list:
             team_couple = []
@@ -74,7 +74,8 @@ class DatasManager:
         return teams_names
 
     def get_nba_players(self, teams_names):
-        nba_players_list = []
+        """ for each team name, we get the players infos to display them in
+        players detail template """
         for team in teams_names:
             team_id = team[0]
             team_name = team[1]
@@ -106,28 +107,3 @@ class DatasManager:
                                              weight=weight, number=number, active=active,
                                              position=position, )
                     insertion_datas.save()
-
-            """nba_player.append(f_name)
-            nba_player.append(l_name)
-            nba_player.append(team_name)
-            nba_player.append(years)
-            nba_player.append(college)
-            nba_player.append(country)
-            nba_player.append(b_date)
-            nba_player.append(height)
-            nba_player.append(weight)
-            nba_player.append(number)
-            nba_player.append(active)
-            nba_player.append(position)
-            if nba_player[-2] == "1":
-                nba_players_list.append(nba_player)
-            
-        return nba_players_list
-
-def players_insertion(self, nba_players_list):
-    ""Insert players in the DB ""
-    for player_list in nba_players_list:
-        insertion_datas = Player(firstname=player_list[0], lastname=player_list[1], team=player_list[2], years=player_list[3],
-                                 college=player_list[4], country=player_list[5], birthdate=player_list[6], height=player_list[7],
-                                 weight=player_list[8], number=player_list[9], active=player_list[10], position=player_list[11],)
-        insertion_datas.save()"""

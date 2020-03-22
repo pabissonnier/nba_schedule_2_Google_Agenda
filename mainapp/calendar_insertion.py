@@ -5,6 +5,7 @@ import pickle
 
 
 def calendar_connection():
+    """ Connection to Google Calendar """
     SCOPES = ["https://www.googleapis.com/auth/calendar"]
     creds = None
     if os.path.exists('mainapp/token.pickle'):
@@ -21,6 +22,7 @@ def calendar_connection():
 
 
 def check_calendar_exist(service):
+    """ Check if our calendar already exists """
     calendar = {
         'summary': 'Your NBA team(s) Schedule',
         'timeZone': 'America/New_York'
@@ -34,6 +36,7 @@ def check_calendar_exist(service):
 
 
 def calendar_insertion(service):
+    """ If not, we insert our calendar """
     calendar = {
         'summary': 'Your NBA team(s) Schedule',
         'timeZone': 'America/New_York'
@@ -46,6 +49,7 @@ def calendar_insertion(service):
 
 
 def get_calendar_id(service):
+    """ If it exists, we get the existing calendar id """
     calendar = {
         'summary': 'Your NBA team(s) Schedule',
         'timeZone': 'America/New_York'
@@ -57,6 +61,7 @@ def get_calendar_id(service):
 
 
 def event_insertion(service, calendar_id, event):
+    """ For a game in the schedule, we insert an event """
     service.events().insert(calendarId=calendar_id, body=event).execute()
     print(f"The event has been created! View it at {event.get('htmlLink')}!")
 
