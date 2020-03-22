@@ -93,7 +93,7 @@ DATABASES = {
         'NAME': 'ns_to_gc',
         'USER': 'pabissonnier',
         'PASSWORD': '458127',
-        'HOST': 'localhost',
+        'HOST': '',
         'PORT': '5432',
 
     }
