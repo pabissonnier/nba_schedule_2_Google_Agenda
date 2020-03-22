@@ -24,7 +24,7 @@ SECRET_KEY = 'vle56+d*(^hz*!34-2a^f)n@q58^0))b*olktb4q#9h6vp4p!6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.environ.get('ENV') == 'PRODUCTION':
-    DEBUG = False
+    DEBUG = True
 else:
     DEBUG = True
 
@@ -140,7 +140,7 @@ USE_TZ = True
 
 # Static files settings
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
+STATIC_URL = '/nba_schedule/static/'
 
 
 if os.environ.get('ENV') == 'PRODUCTION':
