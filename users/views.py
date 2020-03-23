@@ -56,22 +56,25 @@ def teams_detail(request, team_id):
 def player_detail(request, player_id):
     player = get_object_or_404(Player, id=player_id)
     player_name = player.firstname + ' ' + player.lastname
-    player_page = wikipedia.page(player_name)
-    if player_page:
+    try:
         player_bio = wikipedia.summary(player_name, sentences=3)
-        context = {
-            'title': player_name,
-            'bio': player_bio,
-            'number': player.number,
-            'height': player.height,
-            'weight': player.weight,
-            'position': player.position,
-            'college': player.college,
-            'debut': player.debut
-        }
-        return render(request, 'users/player_detail.html', context)
-    else:
-        pass
+        player_url = wikipedia.page(player_name).url
+    except:
+        player_bio = ""
+        player_url = "#"
+    context = {
+        'title': player_name,
+        'bio': player_bio,
+        'url': player_url,
+        'number': player.number,
+        'height': player.height,
+        'weight': player.weight,
+        'position': player.position,
+        'college': player.college,
+        'debut': player.debut
+    }
+    return render(request, 'users/player_detail.html', context)
+
 
 
 @login_required()

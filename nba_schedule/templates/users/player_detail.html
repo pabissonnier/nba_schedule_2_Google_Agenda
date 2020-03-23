@@ -63,18 +63,20 @@
             </div>
           </div>
       </div>
+      {% if url is True %}
       <div class="container-fluid p-4 text-center">
         <div class="row justify-content-center">
             <div class="col-6 text-center p-1">
                 <p>{{ bio }}</p>
+                <p><a href="{{ url }}">More info</a></p>
             </div>
         </div>
+      {% endif %}
         <div class="row justify-content-center">
             <div class="col-6 text-center p-5">
                     <ul class="list-inline">
                         <li class="list-inline-item m-3">
-                            <h6>College:</h6>
-                            {%  if college %}<p>{{ college }}</p> {% else %} <p>ND.</p>{%  endif %}
+                            <h6>College:</h6>{%  if college %}<p>{{ college }}</p> {% else %} <p>ND</p>{%  endif %}
                         </li>
                         <li class="list-inline-item m-3">
                             <h6>NBA debut:</h6>{%  if debut %}<p> {{ debut }}</p> {% else %} <p>ND</p>{%  endif %}
