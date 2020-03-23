@@ -28,17 +28,6 @@ class ScheduleTestCase(TestCase):
         Schedule.objects.create(date="2019-11-15", hour="19:00", vteam='Cleveland Cavaliers ',
                                 hteam='Philadelphia 76ers', arena='Wells Fargo Center')
 
-    """def test_get_team_agenda(self): #Not working
-        team_list = ['Brooklyn Nets', 'Los Angeles Lakers', 'Toronto Raptors']
-        games_list = []
-        for team in team_list:
-            team_db_h = Schedule.objects.filter(hteam=team)
-            team_db_v = Schedule.objects.filter(vteam=team)
-            games_list.append(team_db_h)
-            games_list.append(team_db_v)
-        function_output = Schedule.get_teams_agenda(Schedule(), team_list)
-        self.assertQuerysetEqual(function_output, games_list, transform=lambda x: x)"""
-
     def test_extraction_to_gformat(self):
         game = Schedule.objects.get(id=1)
         result = {'summary': 'Brooklyn Nets @ Phoenix Suns', 'location': 'Talking Stick Resort Arena',
