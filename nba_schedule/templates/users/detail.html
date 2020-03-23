@@ -39,19 +39,21 @@
   <!-- Navigation -->
   <nav class="navbar navbar-light bg-light static-top">
     <div class="container">
-            <div class="col-lg-9">
+            <div class="col-6 col-sm-8 col-xl-10 col-lg-8 col-md-8 my-auto">
                 <h1><a class="navbar-brand" href="/">NS to GC</a></h1>
             </div>
             {% if user.is_authenticated %}
-            <div class="col-lg-2 my-auto">
-                <a href="{% url 'profile' %}" id="account">Welcome {{ user.username|title }} !</a>
+            <div class="col-3 col-sm-2 col-xl-1 col-lg-2 col-md-2 my-auto float-left">
+                <a href="{% url 'profile' %}" id="account">Account</a>
             </div>
-            <div class="col-lg-1 my-auto">
+            <div class="col-3 col-sm-2 col-xl-1 col-lg-2 col-md-2 my-auto">
                 <a href="{% url 'logout' %}" id="signout">Sign out</a>
             </div>
             {%  endif %}
         </div>
   </nav>
+
+  <!-- Team details -->
   <div class="content-section-profile">
       <div class="container-fluid p-4 text-center">
         <div class="row justify-content-md-center">
@@ -61,11 +63,11 @@
             </div>
           </div>
         </div>
-        <div class="row justify-content-md-center">
-            <img class="img-thumbnail" src="{{ picture }}" alt="{{ title }}" width="200"><p>
+        <div class="row justify-content-center">
+            <img class="img-thumbnail mb-5" src="{{ picture }}" alt="{{ title }}" width="200"><p>
         </div>
-        <div class="row justify-content-md-center">
-            <div class="col-md-4">
+        <div class="row justify-content-md-center p-4 m-5">
+            <div class="col-md-4 pr-3">
                 <div class="profile-bloc">
                     <div class="favs-bloc">
                         <h5>Conference:</h5> <h6>{{ conference }}</h6><br />
@@ -77,7 +79,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="profile-bloc">
                     <div class="favs-bloc">
                         <h5>Roster: </h5>
@@ -96,38 +98,27 @@
         <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
           <ul class="list-inline mb-2">
             <li class="list-inline-item">
-              <a href="#">About</a>
+              <a href="/contact">Contact</a>
             </li>
             <li class="list-inline-item">&sdot;</li>
             <li class="list-inline-item">
-              <a href="#">Contact</a>
-            </li>
-            <li class="list-inline-item">&sdot;</li>
-            <li class="list-inline-item">
-              <a href="#">Terms of Use</a>
-            </li>
-            <li class="list-inline-item">&sdot;</li>
-            <li class="list-inline-item">
-              <a href="#">Privacy Policy</a>
+              <a href="/terms">Terms of Use</a>
             </li>
           </ul>
-          <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2019. All Rights Reserved.</p>
+          <p class="text-muted small mb-4 mb-lg-0">&copy;PéA. All Rights Reserved.</p>
         </div>
         <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
           <ul class="list-inline mb-0">
             <li class="list-inline-item mr-3">
               <a href="#">
-                <i class="fab fa-facebook fa-2x fa-fw"></i>
               </a>
             </li>
             <li class="list-inline-item mr-3">
               <a href="#">
-                <i class="fab fa-twitter-square fa-2x fa-fw"></i>
               </a>
             </li>
             <li class="list-inline-item">
               <a href="#">
-                <i class="fab fa-instagram fa-2x fa-fw"></i>
               </a>
             </li>
           </ul>
