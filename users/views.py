@@ -56,12 +56,9 @@ def teams_detail(request, team_id):
 def player_detail(request, player_id):
     player = get_object_or_404(Player, id=player_id)
     player_name = player.firstname + ' ' + player.lastname
-    try:
-        player_bio = wikipedia.summary(player_name, sentences=3)
-        player_url = wikipedia.page(player_name).url
-    except:
-        player_bio = ""
-        player_url = "#"
+    player_bio = wikipedia.summary(player_name, sentences=3)
+    player_url = wikipedia.page(player_name).url
+
     context = {
         'title': player_name,
         'bio': player_bio,
@@ -84,8 +81,11 @@ def remove_calendar(request):
     teams = Team.objects.filter(favorite=request.user.id)
     for team in teams:
         team.favorite.clear()
-    service.calendars().delete(calendarId=calendar_id).execute()
-    messages.success(request, f'NS2GC calendar successfully removed from your Google Calendar')
+    try:
+        service.calendars().delete(calendarId=calendar_id).execute()
+        messages.success(request, f'NS2GC calendar successfully removed from your Google Calendar')
+    except:
+        messages.warning(request, f'No Google Calendar found')
     return redirect(request.META['HTTP_REFERER'])
 
 
